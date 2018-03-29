@@ -1,0 +1,43 @@
+digraph Workflow {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label=topic_modeling
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; color=white
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+AccessText [shape=record rankdir=LR label="{<f0> AccessText |<f1> To read the text data from book1.txt file}"];
+PreprocessFile [shape=record rankdir=LR label="{<f0> PreprocessFile |<f1> To preprocess the text data}"];
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=2 fontname=Courier]
+LDA
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+Topicmodeling_Result
+Static_text [shape=record rankdir=LR label="{<f0> Static_text |<f1> file\:book1.txt}"];
+TextRead
+FileProcess
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+AccessText -> TextRead
+Static_text -> AccessText
+PreprocessFile -> FileProcess
+stopwords -> PreprocessFile
+regular_expression -> PreprocessFile
+TextRead -> PreprocessFile
+LDA -> Topicmodeling_Result
+FileProcess -> LDA
+random_state -> LDA
+max_iter -> LDA
+learning_method -> LDA
+learning_offset -> LDA
+}}
+subgraph cluster_input_ports_group_outer { label=""; color=white
+subgraph cluster_input_ports_group_inner { label=""; color=white
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+Static_text_input_port [label=""]
+}}
+subgraph cluster_output_ports_group_outer { label=""; color=white
+subgraph cluster_output_ports_group_inner { label=""; color=white
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+Topicmodeling_Result_output_port [label=""]
+}}
+Static_text_input_port -> Static_text
+Topicmodeling_Result -> Topicmodeling_Result_output_port
+}

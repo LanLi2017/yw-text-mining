@@ -1,0 +1,31 @@
+
+% FACT: extract_source(source_id, source_path).
+extract_source(1, 'get_raw_data.py').
+
+% FACT: annotation(annotation_id, source_id, line_number, tag, keyword, value).
+annotation(1, 1, 1, 'begin', '@begin', 'get_raw_data').
+annotation(2, 1, 2, 'param', '@param', 'path').
+annotation(3, 1, 2, 'uri', '@uri', 'file:https://www.kaggle.com/tentotheminus9/religious-and-philosophical-texts/downloads/religious-and-philosophical-texts.zip').
+annotation(4, 1, 3, 'out', '@out', 'raw_data').
+annotation(5, 1, 3, 'desc', '@desc', 'raw file before data pre-process').
+annotation(6, 1, 6, 'begin', '@begin', 'download_file').
+annotation(7, 1, 6, 'uri', '@uri', 'file:https://docs.python.org/3.0/library/urllib.request.html#urllib.request.urlretrieve').
+annotation(8, 1, 7, 'param', '@param', 'path').
+annotation(9, 1, 7, 'uri', '@uri', 'file:').
+annotation(10, 1, 8, 'out', '@out', 'local_file').
+annotation(11, 1, 8, 'desc', '@desc', 'store the file at the local path').
+annotation(12, 1, 11, 'end', '@end', 'download_file').
+annotation(13, 1, 13, 'begin', '@begin', 'read_file').
+annotation(14, 1, 14, 'in', '@in', 'local_file').
+annotation(15, 1, 14, 'uri', '@uri', 'file:/local/Downloads/file_name.txt').
+annotation(16, 1, 15, 'out', '@out', 'raw_data').
+annotation(17, 1, 19, 'end', '@end', 'read_file').
+annotation(18, 1, 21, 'end', '@end', 'get_raw_data').
+
+% FACT: annotation_qualifies(qualifying_annotation_id, primary_annotation_id).
+annotation_qualifies(3, 2).
+annotation_qualifies(5, 4).
+annotation_qualifies(7, 6).
+annotation_qualifies(9, 8).
+annotation_qualifies(11, 10).
+annotation_qualifies(15, 14).

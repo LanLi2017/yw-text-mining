@@ -1,0 +1,367 @@
+
+% FACT: program(program_id, program_name, qualified_program_name, begin_annotation_id, end_annotation_id).
+program(1, 'topic_modeling', 'topic_modeling', 1, 109).
+program(2, 'get_raw_data', 'topic_modeling.get_raw_data', 11, 28).
+program(3, 'download_file', 'topic_modeling.get_raw_data.download_file', 16, 22).
+program(4, 'read_file', 'topic_modeling.get_raw_data.read_file', 23, 27).
+program(5, 'pre_process', 'topic_modeling.pre_process', 29, 57).
+program(6, 'tokenization', 'topic_modeling.pre_process.tokenization', 36, 41).
+program(7, 'stopwords_removal', 'topic_modeling.pre_process.stopwords_removal', 42, 48).
+program(8, 'filter_rules', 'topic_modeling.pre_process.filter_rules', 49, 56).
+program(9, 'LDA', 'topic_modeling.LDA', 58, 108).
+program(10, 'tf_calculation', 'topic_modeling.LDA.tf_calculation', 69, 77).
+program(11, 'LatentDirichletAllocation', 'topic_modeling.LDA.LatentDirichletAllocation', 78, 97).
+program(12, 'print_top_words', 'topic_modeling.LDA.print_top_words', 98, 107).
+
+% FACT: workflow(program_id).
+workflow(1).
+workflow(2).
+workflow(5).
+workflow(9).
+
+% FACT: function(program_id).
+
+% FACT: has_subprogram(program_id, subprogram_id).
+has_subprogram(1, 2).
+has_subprogram(2, 3).
+has_subprogram(2, 4).
+has_subprogram(1, 5).
+has_subprogram(5, 6).
+has_subprogram(5, 7).
+has_subprogram(5, 8).
+has_subprogram(1, 9).
+has_subprogram(9, 10).
+has_subprogram(9, 11).
+has_subprogram(9, 12).
+
+% FACT: port(port_id, port_type, port_name, qualified_port_name, port_annotation_id, data_id).
+port(1, 'param', 'path', 'topic_modeling<-path', 2, 1).
+port(2, 'in', 'stopwords', 'topic_modeling<-stopwords', 3, 2).
+port(3, 'in', 'regular_expression', 'topic_modeling<-regular_expression', 4, 3).
+port(4, 'in', 'max_iter', 'topic_modeling<-max_iter', 5, 4).
+port(5, 'in', 'random_state', 'topic_modeling<-random_state', 7, 5).
+port(6, 'in', 'learning_method', 'topic_modeling<-learning_method', 8, 6).
+port(7, 'in', 'learning_offset', 'topic_modeling<-learning_offset', 9, 7).
+port(8, 'out', 'topic_log', 'topic_modeling->topic_log', 10, 8).
+port(9, 'param', 'path', 'topic_modeling.get_raw_data<-path', 12, 9).
+port(10, 'out', 'raw_data', 'topic_modeling.get_raw_data->raw_data', 14, 10).
+port(11, 'param', 'path', 'topic_modeling.get_raw_data.download_file<-path', 18, 11).
+port(12, 'out', 'local_file', 'topic_modeling.get_raw_data.download_file->local_file', 20, 12).
+port(13, 'in', 'local_file', 'topic_modeling.get_raw_data.read_file<-local_file', 24, 12).
+port(14, 'out', 'raw_data', 'topic_modeling.get_raw_data.read_file->raw_data', 26, 13).
+port(15, 'in', 'raw_data', 'topic_modeling.pre_process<-raw_data', 31, 10).
+port(16, 'in', 'stopwords', 'topic_modeling.pre_process<-stopwords', 32, 14).
+port(17, 'in', 'regexr', 'topic_modeling.pre_process<-regexr', 33, 15).
+port(18, 'out', 'file_valid', 'topic_modeling.pre_process->file_valid', 35, 16).
+port(19, 'in', 'raw_data', 'topic_modeling.pre_process.tokenization<-raw_data', 38, 17).
+port(20, 'out', 'file_tokens', 'topic_modeling.pre_process.tokenization->file_tokens', 39, 18).
+port(21, 'in', 'stopwords', 'topic_modeling.pre_process.stopwords_removal<-stopwords', 44, 19).
+port(22, 'in', 'file_tokens', 'topic_modeling.pre_process.stopwords_removal<-file_tokens', 46, 18).
+port(23, 'out', 'clean_file', 'topic_modeling.pre_process.stopwords_removal->clean_file', 47, 20).
+port(24, 'in', 'regexr', 'topic_modeling.pre_process.filter_rules<-regexr', 51, 21).
+port(25, 'in', 'clean_file', 'topic_modeling.pre_process.filter_rules<-clean_file', 53, 20).
+port(26, 'out', 'file_valid', 'topic_modeling.pre_process.filter_rules->file_valid', 54, 22).
+port(27, 'in', 'file_valid', 'topic_modeling.LDA<-file_valid', 59, 16).
+port(28, 'param', 'n_components', 'topic_modeling.LDA<-n_components', 61, 23).
+port(29, 'param', 'n_top_words', 'topic_modeling.LDA<-n_top_words', 62, 24).
+port(30, 'in', 'random_state', 'topic_modeling.LDA<-random_state', 63, 25).
+port(31, 'in', 'max_iter', 'topic_modeling.LDA<-max_iter', 64, 26).
+port(32, 'in', 'learning_method', 'topic_modeling.LDA<-learning_method', 66, 27).
+port(33, 'in', 'learning_offset', 'topic_modeling.LDA<-learning_offset', 67, 28).
+port(34, 'out', 'topic_log', 'topic_modeling.LDA->topic_log', 68, 29).
+port(35, 'in', 'file_valid', 'topic_modeling.LDA.tf_calculation<-file_valid', 71, 30).
+port(36, 'out', 'tf', 'topic_modeling.LDA.tf_calculation->tf', 73, 31).
+port(37, 'out', 'tf_vectorizer', 'topic_modeling.LDA.tf_calculation->tf_vectorizer', 75, 32).
+port(38, 'param', 'n_components', 'topic_modeling.LDA.LatentDirichletAllocation<-n_components', 80, 33).
+port(39, 'param', 'tf', 'topic_modeling.LDA.LatentDirichletAllocation<-tf', 81, 31).
+port(40, 'param', 'tf_vectorizer', 'topic_modeling.LDA.LatentDirichletAllocation<-tf_vectorizer', 83, 32).
+port(41, 'in', 'max_iter', 'topic_modeling.LDA.LatentDirichletAllocation<-max_iter', 85, 34).
+port(42, 'in', 'learning_method', 'topic_modeling.LDA.LatentDirichletAllocation<-learning_method', 87, 35).
+port(43, 'in', 'learning_offset', 'topic_modeling.LDA.LatentDirichletAllocation<-learning_offset', 89, 36).
+port(44, 'in', 'random_state', 'topic_modeling.LDA.LatentDirichletAllocation<-random_state', 91, 37).
+port(45, 'out', 'lda', 'topic_modeling.LDA.LatentDirichletAllocation->lda', 93, 38).
+port(46, 'out', 'tf_feature_names', 'topic_modeling.LDA.LatentDirichletAllocation->tf_feature_names', 95, 39).
+port(47, 'in', 'lda', 'topic_modeling.LDA.print_top_words<-lda', 100, 38).
+port(48, 'in', 'tf_feature_names', 'topic_modeling.LDA.print_top_words<-tf_feature_names', 103, 39).
+port(49, 'param', 'n_top_words', 'topic_modeling.LDA.print_top_words<-n_top_words', 105, 40).
+port(50, 'out', 'topic_log', 'topic_modeling.LDA.print_top_words->topic_log', 106, 41).
+
+% FACT: port_alias(port_id, alias).
+port_alias(4, 'max_iteration').
+port_alias(17, 'regular_expression').
+port_alias(24, 'regular_expression').
+port_alias(31, 'max_iteration').
+port_alias(36, 'term_frequency').
+port_alias(37, 'term_frequency_vectorizer').
+port_alias(39, 'term_frequency').
+port_alias(40, 'term_frequency_vectorizer').
+port_alias(45, 'LDA_model').
+port_alias(46, 'TermFrequency_feature_names').
+port_alias(47, 'LDA_model').
+port_alias(48, 'TermFrequency_feature_names').
+
+% FACT: port_uri_template(port_id, uri).
+port_uri_template(9, 'file:https://www.kaggle.com/tentotheminus9/religious-and-philosophical-texts/downloads/religious-and-philosophical-texts.zip').
+port_uri_template(11, 'file:').
+port_uri_template(13, 'file:/local/Downloads/file_name.txt').
+port_uri_template(21, 'file:http://www.nltk.org/book/ch02.html').
+
+% FACT: has_in_port(block_id, port_id).
+has_in_port(1, 1).
+has_in_port(1, 2).
+has_in_port(1, 3).
+has_in_port(1, 4).
+has_in_port(1, 5).
+has_in_port(1, 6).
+has_in_port(1, 7).
+has_in_port(2, 9).
+has_in_port(3, 11).
+has_in_port(4, 13).
+has_in_port(5, 15).
+has_in_port(5, 16).
+has_in_port(5, 17).
+has_in_port(6, 19).
+has_in_port(7, 21).
+has_in_port(7, 22).
+has_in_port(8, 24).
+has_in_port(8, 25).
+has_in_port(9, 27).
+has_in_port(9, 28).
+has_in_port(9, 29).
+has_in_port(9, 30).
+has_in_port(9, 31).
+has_in_port(9, 32).
+has_in_port(9, 33).
+has_in_port(10, 35).
+has_in_port(11, 38).
+has_in_port(11, 39).
+has_in_port(11, 40).
+has_in_port(11, 41).
+has_in_port(11, 42).
+has_in_port(11, 43).
+has_in_port(11, 44).
+has_in_port(12, 47).
+has_in_port(12, 48).
+has_in_port(12, 49).
+
+% FACT: has_out_port(block_id, port_id).
+has_out_port(1, 8).
+has_out_port(2, 10).
+has_out_port(3, 12).
+has_out_port(4, 14).
+has_out_port(5, 18).
+has_out_port(6, 20).
+has_out_port(7, 23).
+has_out_port(8, 26).
+has_out_port(9, 34).
+has_out_port(10, 36).
+has_out_port(10, 37).
+has_out_port(11, 45).
+has_out_port(11, 46).
+has_out_port(12, 50).
+
+% FACT: data(data_id, data_name, qualified_data_name).
+data(1, 'path', '[path]').
+data(2, 'stopwords', '[stopwords]').
+data(3, 'regular_expression', '[regular_expression]').
+data(4, 'max_iteration', '[max_iteration]').
+data(5, 'random_state', '[random_state]').
+data(6, 'learning_method', '[learning_method]').
+data(7, 'learning_offset', '[learning_offset]').
+data(8, 'topic_log', '[topic_log]').
+data(9, 'path', 'topic_modeling[path]').
+data(10, 'raw_data', 'topic_modeling[raw_data]').
+data(14, 'stopwords', 'topic_modeling[stopwords]').
+data(15, 'regular_expression', 'topic_modeling[regular_expression]').
+data(16, 'file_valid', 'topic_modeling[file_valid]').
+data(23, 'n_components', 'topic_modeling[n_components]').
+data(24, 'n_top_words', 'topic_modeling[n_top_words]').
+data(25, 'random_state', 'topic_modeling[random_state]').
+data(26, 'max_iteration', 'topic_modeling[max_iteration]').
+data(27, 'learning_method', 'topic_modeling[learning_method]').
+data(28, 'learning_offset', 'topic_modeling[learning_offset]').
+data(29, 'topic_log', 'topic_modeling[topic_log]').
+data(11, 'path', 'topic_modeling.get_raw_data[path]').
+data(12, 'local_file', 'topic_modeling.get_raw_data[local_file]').
+data(13, 'raw_data', 'topic_modeling.get_raw_data[raw_data]').
+data(17, 'raw_data', 'topic_modeling.pre_process[raw_data]').
+data(18, 'file_tokens', 'topic_modeling.pre_process[file_tokens]').
+data(19, 'stopwords', 'topic_modeling.pre_process[stopwords]').
+data(20, 'clean_file', 'topic_modeling.pre_process[clean_file]').
+data(21, 'regular_expression', 'topic_modeling.pre_process[regular_expression]').
+data(22, 'file_valid', 'topic_modeling.pre_process[file_valid]').
+data(30, 'file_valid', 'topic_modeling.LDA[file_valid]').
+data(31, 'term_frequency', 'topic_modeling.LDA[term_frequency]').
+data(32, 'term_frequency_vectorizer', 'topic_modeling.LDA[term_frequency_vectorizer]').
+data(33, 'n_components', 'topic_modeling.LDA[n_components]').
+data(34, 'max_iter', 'topic_modeling.LDA[max_iter]').
+data(35, 'learning_method', 'topic_modeling.LDA[learning_method]').
+data(36, 'learning_offset', 'topic_modeling.LDA[learning_offset]').
+data(37, 'random_state', 'topic_modeling.LDA[random_state]').
+data(38, 'LDA_model', 'topic_modeling.LDA[LDA_model]').
+data(39, 'TermFrequency_feature_names', 'topic_modeling.LDA[TermFrequency_feature_names]').
+data(40, 'n_top_words', 'topic_modeling.LDA[n_top_words]').
+data(41, 'topic_log', 'topic_modeling.LDA[topic_log]').
+
+% FACT: channel(channel_id, data_id).
+channel(34, 8).
+channel(35, 9).
+channel(36, 10).
+channel(37, 14).
+channel(38, 15).
+channel(39, 16).
+channel(40, 25).
+channel(41, 26).
+channel(42, 27).
+channel(43, 28).
+channel(44, 1).
+channel(45, 2).
+channel(46, 3).
+channel(47, 4).
+channel(48, 5).
+channel(49, 6).
+channel(50, 7).
+channel(51, 29).
+channel(1, 10).
+channel(2, 11).
+channel(3, 12).
+channel(4, 9).
+channel(5, 13).
+channel(6, 16).
+channel(7, 17).
+channel(8, 19).
+channel(9, 18).
+channel(10, 21).
+channel(11, 20).
+channel(12, 10).
+channel(13, 14).
+channel(14, 15).
+channel(15, 22).
+channel(16, 29).
+channel(17, 30).
+channel(18, 33).
+channel(19, 31).
+channel(20, 32).
+channel(21, 35).
+channel(22, 36).
+channel(23, 37).
+channel(24, 38).
+channel(25, 39).
+channel(26, 40).
+channel(27, 16).
+channel(28, 23).
+channel(29, 24).
+channel(30, 25).
+channel(31, 27).
+channel(32, 28).
+channel(33, 41).
+
+% FACT: port_connects_to_channel(port_id, channel_id).
+port_connects_to_channel(34, 34).
+port_connects_to_channel(9, 35).
+port_connects_to_channel(10, 36).
+port_connects_to_channel(15, 36).
+port_connects_to_channel(16, 37).
+port_connects_to_channel(17, 38).
+port_connects_to_channel(18, 39).
+port_connects_to_channel(27, 39).
+port_connects_to_channel(30, 40).
+port_connects_to_channel(31, 41).
+port_connects_to_channel(32, 42).
+port_connects_to_channel(33, 43).
+port_connects_to_channel(9, 44).
+port_connects_to_channel(16, 45).
+port_connects_to_channel(17, 46).
+port_connects_to_channel(31, 47).
+port_connects_to_channel(30, 48).
+port_connects_to_channel(32, 49).
+port_connects_to_channel(33, 50).
+port_connects_to_channel(34, 51).
+port_connects_to_channel(14, 1).
+port_connects_to_channel(11, 2).
+port_connects_to_channel(12, 3).
+port_connects_to_channel(13, 3).
+port_connects_to_channel(11, 4).
+port_connects_to_channel(14, 5).
+port_connects_to_channel(26, 6).
+port_connects_to_channel(19, 7).
+port_connects_to_channel(21, 8).
+port_connects_to_channel(20, 9).
+port_connects_to_channel(22, 9).
+port_connects_to_channel(24, 10).
+port_connects_to_channel(23, 11).
+port_connects_to_channel(25, 11).
+port_connects_to_channel(19, 12).
+port_connects_to_channel(21, 13).
+port_connects_to_channel(24, 14).
+port_connects_to_channel(26, 15).
+port_connects_to_channel(50, 16).
+port_connects_to_channel(35, 17).
+port_connects_to_channel(38, 18).
+port_connects_to_channel(36, 19).
+port_connects_to_channel(39, 19).
+port_connects_to_channel(37, 20).
+port_connects_to_channel(40, 20).
+port_connects_to_channel(42, 21).
+port_connects_to_channel(43, 22).
+port_connects_to_channel(44, 23).
+port_connects_to_channel(45, 24).
+port_connects_to_channel(47, 24).
+port_connects_to_channel(46, 25).
+port_connects_to_channel(48, 25).
+port_connects_to_channel(49, 26).
+port_connects_to_channel(35, 27).
+port_connects_to_channel(38, 28).
+port_connects_to_channel(49, 29).
+port_connects_to_channel(44, 30).
+port_connects_to_channel(42, 31).
+port_connects_to_channel(43, 32).
+port_connects_to_channel(50, 33).
+
+% FACT: inflow_connects_to_channel(port_id, channel_id).
+inflow_connects_to_channel(1, 35).
+inflow_connects_to_channel(2, 37).
+inflow_connects_to_channel(3, 38).
+inflow_connects_to_channel(5, 40).
+inflow_connects_to_channel(4, 41).
+inflow_connects_to_channel(6, 42).
+inflow_connects_to_channel(7, 43).
+inflow_connects_to_channel(1, 44).
+inflow_connects_to_channel(2, 45).
+inflow_connects_to_channel(3, 46).
+inflow_connects_to_channel(4, 47).
+inflow_connects_to_channel(5, 48).
+inflow_connects_to_channel(6, 49).
+inflow_connects_to_channel(7, 50).
+inflow_connects_to_channel(9, 2).
+inflow_connects_to_channel(9, 4).
+inflow_connects_to_channel(15, 7).
+inflow_connects_to_channel(16, 8).
+inflow_connects_to_channel(17, 10).
+inflow_connects_to_channel(15, 12).
+inflow_connects_to_channel(16, 13).
+inflow_connects_to_channel(17, 14).
+inflow_connects_to_channel(27, 17).
+inflow_connects_to_channel(28, 18).
+inflow_connects_to_channel(32, 21).
+inflow_connects_to_channel(33, 22).
+inflow_connects_to_channel(30, 23).
+inflow_connects_to_channel(29, 26).
+inflow_connects_to_channel(27, 27).
+inflow_connects_to_channel(28, 28).
+inflow_connects_to_channel(29, 29).
+inflow_connects_to_channel(30, 30).
+inflow_connects_to_channel(32, 31).
+inflow_connects_to_channel(33, 32).
+
+% FACT: outflow_connects_to_channel(port_id, channel_id).
+outflow_connects_to_channel(8, 34).
+outflow_connects_to_channel(8, 51).
+outflow_connects_to_channel(10, 1).
+outflow_connects_to_channel(10, 5).
+outflow_connects_to_channel(18, 6).
+outflow_connects_to_channel(18, 15).
+outflow_connects_to_channel(34, 16).
+outflow_connects_to_channel(34, 33).
+
+% FACT: uri_variable(uri_variable_id, variable_name, port_id).

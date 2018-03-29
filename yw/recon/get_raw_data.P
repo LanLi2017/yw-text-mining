@@ -1,0 +1,6 @@
+
+% FACT: resource(resource_id, resource_uri).
+
+% FACT: data_resource(data_id, resource_id).
+
+% FACT: uri_variable_value(resource_id, uri_variable_id, uri_variable_value).

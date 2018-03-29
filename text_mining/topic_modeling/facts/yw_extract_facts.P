@@ -1,0 +1,117 @@
+
+% FACT: extract_source(source_id, source_path).
+extract_source(1, './script/topic_modeling.py').
+
+% FACT: annotation(annotation_id, source_id, line_number, tag, keyword, value).
+annotation(1, 1, 1, 'begin', '@begin', 'topic_modeling').
+annotation(2, 1, 1, 'desc', '@desc', 'Exercise YW for Analysing Text with NLTk').
+annotation(3, 1, 2, 'in', '@in', 'Static_text').
+annotation(4, 1, 2, 'uri', '@uri', 'file:book1.txt').
+annotation(5, 1, 3, 'out', '@out', 'Topicmodeling_Result').
+annotation(6, 1, 3, 'desc', '@desc', 'log file which contains the topics').
+annotation(7, 1, 3, 'uri', '@uri', 'file:output.txt').
+annotation(8, 1, 11, 'begin', '@begin', 'AccessText').
+annotation(9, 1, 11, 'desc', '@desc', 'To read the text data from book1.txt file').
+annotation(10, 1, 12, 'in', '@in', 'text_data_path').
+annotation(11, 1, 12, 'as', '@as', 'Static_text').
+annotation(12, 1, 12, 'desc', '@desc', 'Text file which contains static text data').
+annotation(13, 1, 12, 'uri', '@uri', 'file:book1.txt').
+annotation(14, 1, 13, 'out', '@out', 'text_file').
+annotation(15, 1, 13, 'as', '@as', 'TextRead').
+annotation(16, 1, 16, 'end', '@end', 'AccessText').
+annotation(17, 1, 18, 'begin', '@begin', 'PreprocessFile').
+annotation(18, 1, 18, 'desc', '@desc', 'To preprocess the text data').
+annotation(19, 1, 19, 'in', '@in', 'stopwords').
+annotation(20, 1, 20, 'in', '@in', 'regexr').
+annotation(21, 1, 20, 'as', '@as', 'regular_expression').
+annotation(22, 1, 21, 'in', '@in', 'TextRead').
+annotation(23, 1, 22, 'out', '@out', 'Valid_file').
+annotation(24, 1, 22, 'as', '@as', 'FileProcess').
+annotation(25, 1, 22, 'desc', '@desc', 'valid file after data preprocessing').
+annotation(26, 1, 33, 'end', '@end', 'PreprocessFile').
+annotation(27, 1, 35, 'begin', '@begin', 'LDA').
+annotation(28, 1, 36, 'in', '@in', 'FileProcess').
+annotation(29, 1, 36, 'desc', '@desc', 'file after pre_process procedure').
+annotation(30, 1, 37, 'param', '@param', 'n_components').
+annotation(31, 1, 38, 'param', '@param', 'n_top_words').
+annotation(32, 1, 39, 'in', '@in', 'random_state').
+annotation(33, 1, 40, 'in', '@in', 'max_iter').
+annotation(34, 1, 41, 'in', '@in', 'learning_method').
+annotation(35, 1, 42, 'in', '@in', 'learning_offset').
+annotation(36, 1, 43, 'out', '@out', 'Topicmodeling_Result').
+annotation(37, 1, 46, 'begin', '@begin', 'tf_calculation').
+annotation(38, 1, 46, 'desc', '@desc', 'using CountVectorizer from sklearn library to calculate the term frequency').
+annotation(39, 1, 47, 'in', '@in', 'file_valid').
+annotation(40, 1, 47, 'desc', '@desc', 'file after pre_process').
+annotation(41, 1, 48, 'out', '@out', 'tf').
+annotation(42, 1, 48, 'as', '@as', 'term_frequency').
+annotation(43, 1, 49, 'out', '@out', 'tf_vectorizer').
+annotation(44, 1, 49, 'as', '@as', 'term_frequency_vectorizer').
+annotation(45, 1, 53, 'end', '@end', 'tf_calculation').
+annotation(46, 1, 55, 'begin', '@begin', 'LatentDirichletAllocation').
+annotation(47, 1, 55, 'desc', '@desc', 'using the sciki-learn library to do LDA modeling').
+annotation(48, 1, 56, 'param', '@param', 'n_components').
+annotation(49, 1, 57, 'param', '@param', 'tf').
+annotation(50, 1, 57, 'as', '@as', 'term_frequency').
+annotation(51, 1, 58, 'param', '@param', 'tf_vectorizer').
+annotation(52, 1, 58, 'as', '@as', 'term_frequency_vectorizer').
+annotation(53, 1, 59, 'in', '@in', 'max_iter').
+annotation(54, 1, 59, 'desc', '@desc', 'the maximum number of iterations').
+annotation(55, 1, 60, 'in', '@in', 'learning_method').
+annotation(56, 1, 60, 'desc', '@desc', 'method used to update _component, only used in fit method').
+annotation(57, 1, 61, 'in', '@in', 'learning_offset').
+annotation(58, 1, 61, 'desc', '@desc', 'a parameter that down weights early iterations in online learning').
+annotation(59, 1, 62, 'in', '@in', 'random_state').
+annotation(60, 1, 62, 'desc', '@desc', 'random number generator').
+annotation(61, 1, 63, 'out', '@out', 'lda').
+annotation(62, 1, 63, 'as', '@as', 'LDA_model').
+annotation(63, 1, 64, 'out', '@out', 'tf_feature_names').
+annotation(64, 1, 64, 'as', '@as', 'TermFrequency_feature_names').
+annotation(65, 1, 74, 'end', '@end', 'LatentDirichletAllocation').
+annotation(66, 1, 76, 'begin', '@begin', 'print_top_words').
+annotation(67, 1, 76, 'desc', '@desc', 'print the topics with top words').
+annotation(68, 1, 77, 'in', '@in', 'lda').
+annotation(69, 1, 77, 'as', '@as', 'LDA_model').
+annotation(70, 1, 77, 'desc', '@desc', 'LDA model').
+annotation(71, 1, 78, 'in', '@in', 'tf_feature_names').
+annotation(72, 1, 78, 'as', '@as', 'TermFrequency_feature_names').
+annotation(73, 1, 79, 'param', '@param', 'n_top_words').
+annotation(74, 1, 80, 'out', '@out', 'Topicmodeling_Result').
+annotation(75, 1, 80, 'uri', '@uri', 'file:output.txt').
+annotation(76, 1, 89, 'end', '@end', 'print_top_words').
+annotation(77, 1, 91, 'end', '@end', 'LDA').
+annotation(78, 1, 93, 'end', '@end', 'topic_modeling').
+
+% FACT: annotation_qualifies(qualifying_annotation_id, primary_annotation_id).
+annotation_qualifies(2, 1).
+annotation_qualifies(4, 3).
+annotation_qualifies(6, 5).
+annotation_qualifies(7, 5).
+annotation_qualifies(9, 8).
+annotation_qualifies(11, 10).
+annotation_qualifies(12, 10).
+annotation_qualifies(13, 10).
+annotation_qualifies(15, 14).
+annotation_qualifies(18, 17).
+annotation_qualifies(21, 20).
+annotation_qualifies(24, 23).
+annotation_qualifies(25, 23).
+annotation_qualifies(29, 28).
+annotation_qualifies(38, 37).
+annotation_qualifies(40, 39).
+annotation_qualifies(42, 41).
+annotation_qualifies(44, 43).
+annotation_qualifies(47, 46).
+annotation_qualifies(50, 49).
+annotation_qualifies(52, 51).
+annotation_qualifies(54, 53).
+annotation_qualifies(56, 55).
+annotation_qualifies(58, 57).
+annotation_qualifies(60, 59).
+annotation_qualifies(62, 61).
+annotation_qualifies(64, 63).
+annotation_qualifies(67, 66).
+annotation_qualifies(69, 68).
+annotation_qualifies(70, 68).
+annotation_qualifies(72, 71).
+annotation_qualifies(75, 74).

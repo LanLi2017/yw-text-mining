@@ -1,0 +1,10 @@
+Topic #0: mode utf encoding book1 txt name
+Topic #1: txt book1 name mode encoding utf
+Topic #2: mode txt utf encoding name book1
+Topic #3: mode name book1 txt utf encoding
+Topic #4: utf name encoding book1 txt mode
+Topic #5: encoding book1 name mode txt utf
+Topic #6: mode encoding txt name utf book1
+Topic #7: name txt encoding book1 mode utf
+Topic #8: name book1 utf txt encoding mode
+Topic #9: encoding utf name book1 txt mode

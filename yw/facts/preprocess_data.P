@@ -1,0 +1,45 @@
+
+% FACT: extract_source(source_id, source_path).
+extract_source(1, 'preprocess_data.py').
+
+% FACT: annotation(annotation_id, source_id, line_number, tag, keyword, value).
+annotation(1, 1, 6, 'begin', '@begin', 'pre_process').
+annotation(2, 1, 6, 'desc', '@desc', 'pre-process the data, do data cleaning,tokenization,filter').
+annotation(3, 1, 7, 'in', '@in', 'raw_data').
+annotation(4, 1, 8, 'in', '@in', 'stopwords').
+annotation(5, 1, 9, 'in', '@in', 'regexr').
+annotation(6, 1, 9, 'as', '@as', 'regular_expression').
+annotation(7, 1, 10, 'out', '@out', 'file_valid').
+annotation(8, 1, 12, 'begin', '@begin', 'tokenization').
+annotation(9, 1, 12, 'desc', '@desc', 'using NLTK word_tokenize to do tokenization').
+annotation(10, 1, 13, 'in', '@in', 'raw_data').
+annotation(11, 1, 14, 'out', '@out', 'file_tokens').
+annotation(12, 1, 14, 'desc', '@desc', 'the file after tokenization').
+annotation(13, 1, 17, 'end', '@end', 'tokenization').
+annotation(14, 1, 19, 'begin', '@begin', 'stopwords_removal').
+annotation(15, 1, 19, 'desc', '@desc', 'remove the stopwords from the file').
+annotation(16, 1, 20, 'in', '@in', 'stopwords').
+annotation(17, 1, 20, 'uri', '@uri', 'file:http://www.nltk.org/book/ch02.html').
+annotation(18, 1, 21, 'in', '@in', 'file_tokens').
+annotation(19, 1, 22, 'out', '@out', 'clean_file').
+annotation(20, 1, 29, 'end', '@end', 'stopwords_removal').
+annotation(21, 1, 31, 'begin', '@begin', 'filter_rules').
+annotation(22, 1, 31, 'desc', '@desc', 'using regular expression to filter the other data format').
+annotation(23, 1, 32, 'in', '@in', 'regexr').
+annotation(24, 1, 32, 'as', '@as', 'regular_expression').
+annotation(25, 1, 33, 'in', '@in', 'clean_file').
+annotation(26, 1, 34, 'out', '@out', 'file_valid').
+annotation(27, 1, 34, 'desc', '@desc', 'output the valid file').
+annotation(28, 1, 37, 'end', '@end', 'filter_rules').
+annotation(29, 1, 39, 'end', '@end', 'pre_process').
+
+% FACT: annotation_qualifies(qualifying_annotation_id, primary_annotation_id).
+annotation_qualifies(2, 1).
+annotation_qualifies(6, 5).
+annotation_qualifies(9, 8).
+annotation_qualifies(12, 11).
+annotation_qualifies(15, 14).
+annotation_qualifies(17, 16).
+annotation_qualifies(22, 21).
+annotation_qualifies(24, 23).
+annotation_qualifies(27, 26).

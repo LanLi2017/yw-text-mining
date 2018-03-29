@@ -1,0 +1,33 @@
+digraph Workflow {
+rankdir=LR
+fontname=Courier; fontsize=18; labelloc=t
+label=pre_process
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; color=white
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+tokenization [shape=record rankdir=LR label="{{<f0> tokenization |<f1> using NLTK word_tokenize to do tokenization}}"];
+stopwords_removal [shape=record rankdir=LR label="{{<f0> stopwords_removal |<f1> remove the stopwords from the file}}"];
+filter_rules [shape=record rankdir=LR label="{{<f0> filter_rules |<f1> using regular expression to filter the other data format}}"];
+edge[fontname=Helvetica]
+tokenization -> stopwords_removal [label=file_tokens]
+stopwords_removal -> filter_rules [label=clean_file]
+}}
+subgraph cluster_input_ports_group_outer { label=""; color=white
+subgraph cluster_input_ports_group_inner { label=""; color=white
+node[shape=circle style=filled fillcolor="#FFFFFF" peripheries=1 fontname=Courier width=0.2]
+raw_data_input_port [label=""]
+stopwords_input_port [label=""]
+regular_expression_input_port [label=""]
+}}
+subgraph cluster_output_ports_group_outer { label=""; color=white
+subgraph cluster_output_ports_group_inner { label=""; color=white
+node[shape=circle style=filled fillcolor="#FFFFFF" peripheries=1 fontname=Courier width=0.2]
+file_valid_output_port [label=""]
+}}
+edge[fontname=Helvetica]
+raw_data_input_port -> tokenization [label=raw_data]
+stopwords_input_port -> stopwords_removal [label=stopwords]
+regular_expression_input_port -> filter_rules [label=regular_expression]
+edge[fontname=Helvetica]
+filter_rules -> file_valid_output_port [label=file_valid]
+}

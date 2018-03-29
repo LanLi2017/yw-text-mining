@@ -1,0 +1,41 @@
+digraph Workflow {
+rankdir=LR
+fontname=Courier; fontsize=18; labelloc=t
+label=topic_modeling
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; color=white
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=2 fontname=Courier]
+get_raw_data
+pre_process [shape=record rankdir=LR label="{{<f0> pre_process |<f1> pre-process the data, do data cleaning,tokenization,filter}}"];
+LDA
+edge[fontname=Helvetica]
+get_raw_data -> pre_process [label=raw_data]
+pre_process -> LDA [label=file_valid]
+}}
+subgraph cluster_input_ports_group_outer { label=""; color=white
+subgraph cluster_input_ports_group_inner { label=""; color=white
+node[shape=circle style=filled fillcolor="#FFFFFF" peripheries=1 fontname=Courier width=0.2]
+stopwords_input_port [label=""]
+regular_expression_input_port [label=""]
+max_iteration_input_port [label=""]
+random_state_input_port [label=""]
+learning_method_input_port [label=""]
+learning_offset_input_port [label=""]
+}}
+subgraph cluster_output_ports_group_outer { label=""; color=white
+subgraph cluster_output_ports_group_inner { label=""; color=white
+node[shape=circle style=filled fillcolor="#FFFFFF" peripheries=1 fontname=Courier width=0.2]
+topic_log_output_port [label=""]
+}}
+edge[fontname=Helvetica]
+path_input_port -> get_raw_data [label=path]
+stopwords_input_port -> pre_process [label=stopwords]
+regular_expression_input_port -> pre_process [label=regular_expression]
+random_state_input_port -> LDA [label=random_state]
+max_iteration_input_port -> LDA [label=max_iteration]
+learning_method_input_port -> LDA [label=learning_method]
+learning_offset_input_port -> LDA [label=learning_offset]
+edge[fontname=Helvetica]
+LDA -> topic_log_output_port [label=topic_log]
+}

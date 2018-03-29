@@ -1,0 +1,43 @@
+digraph Workflow {
+rankdir=LR
+fontname=Courier; fontsize=18; labelloc=t
+label=LDA
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; color=white
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+tf_calculation [shape=record rankdir=LR label="{{<f0> tf_calculation |<f1> using CountVectorizer from sklearn library to calculate the term frequency}}"];
+LatentDirichletAllocation [shape=record rankdir=LR label="{{<f0> LatentDirichletAllocation |<f1> using the sciki-learn library to do LDA modeling}}"];
+print_top_words [shape=record rankdir=LR label="{{<f0> print_top_words |<f1> print the topics with top words}}"];
+edge[fontname=Helvetica]
+tf_calculation -> LatentDirichletAllocation [label=term_frequency]
+tf_calculation -> LatentDirichletAllocation [label=term_frequency_vectorizer]
+LatentDirichletAllocation -> print_top_words [label=LDA_model]
+LatentDirichletAllocation -> print_top_words [label=TermFrequency_feature_names]
+}}
+subgraph cluster_input_ports_group_outer { label=""; color=white
+subgraph cluster_input_ports_group_inner { label=""; color=white
+node[shape=circle style=filled fillcolor="#FFFFFF" peripheries=1 fontname=Courier width=0.2]
+file_valid_input_port [label=""]
+n_components_input_port [label=""]
+n_top_words_input_port [label=""]
+random_state_input_port [label=""]
+max_iter_input_port [label=""]
+learning_method_input_port [label=""]
+learning_offset_input_port [label=""]
+}}
+subgraph cluster_output_ports_group_outer { label=""; color=white
+subgraph cluster_output_ports_group_inner { label=""; color=white
+node[shape=circle style=filled fillcolor="#FFFFFF" peripheries=1 fontname=Courier width=0.2]
+topic_log_output_port [label=""]
+}}
+edge[fontname=Helvetica]
+file_valid_input_port -> tf_calculation [label=file_valid]
+n_components_input_port -> LatentDirichletAllocation [label=n_components]
+max_iter_input_port -> LatentDirichletAllocation [label=max_iter]
+learning_method_input_port -> LatentDirichletAllocation [label=learning_method]
+learning_offset_input_port -> LatentDirichletAllocation [label=learning_offset]
+random_state_input_port -> LatentDirichletAllocation [label=random_state]
+n_top_words_input_port -> print_top_words [label=n_top_words]
+edge[fontname=Helvetica]
+print_top_words -> topic_log_output_port [label=topic_log]
+}
