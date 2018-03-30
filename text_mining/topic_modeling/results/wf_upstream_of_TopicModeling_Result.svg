@@ -95,13 +95,13 @@
 <text text-anchor="middle" x="775" y="-523.8" font-family="Helvetica,sans-Serif" font-size="14.00">Static_text</text>
 </g>
 <!-- Static_text&#45;&gt;AccessText -->
-<g id="edge1" class="edge">
+<g id="edge9" class="edge">
 <title>Static_text&#45;&gt;AccessText</title>
 <path fill="none" stroke="black" d="M775,-509.831C775,-502.131 775,-492.974 775,-484.417"/>
 <polygon fill="black" stroke="black" points="778.5,-484.413 775,-474.413 771.5,-484.413 778.5,-484.413"/>
 </g>
 <!-- TextRead&#45;&gt;PreprocessFile -->
-<g id="edge5" class="edge">
+<g id="edge2" class="edge">
 <title>TextRead&#45;&gt;PreprocessFile</title>
 <path fill="none" stroke="black" d="M766.112,-365.831C759.247,-357.454 750.97,-347.353 743.449,-338.175"/>
 <polygon fill="black" stroke="black" points="746.134,-335.93 737.089,-330.413 740.72,-340.366 746.134,-335.93"/>
@@ -113,7 +113,7 @@
 <text text-anchor="middle" x="686" y="-379.8" font-family="Helvetica,sans-Serif" font-size="14.00">stopwords</text>
 </g>
 <!-- stopwords&#45;&gt;PreprocessFile -->
-<g id="edge7" class="edge">
+<g id="edge4" class="edge">
 <title>stopwords&#45;&gt;PreprocessFile</title>
 <path fill="none" stroke="black" d="M695.084,-365.831C699.061,-357.877 703.815,-348.369 708.214,-339.572"/>
 <polygon fill="black" stroke="black" points="711.452,-340.923 712.793,-330.413 705.191,-337.792 711.452,-340.923"/>
@@ -125,13 +125,13 @@
 <text text-anchor="middle" x="561" y="-379.8" font-family="Helvetica,sans-Serif" font-size="14.00">regular_expression</text>
 </g>
 <!-- regular_expression&#45;&gt;PreprocessFile -->
-<g id="edge9" class="edge">
+<g id="edge6" class="edge">
 <title>regular_expression&#45;&gt;PreprocessFile</title>
 <path fill="none" stroke="black" d="M601.627,-365.831C623.16,-356.202 649.785,-344.295 672.515,-334.13"/>
 <polygon fill="black" stroke="black" points="673.965,-337.316 681.665,-330.038 671.107,-330.925 673.965,-337.316"/>
 </g>
 <!-- FileProcess&#45;&gt;LDA -->
-<g id="edge11" class="edge">
+<g id="edge8" class="edge">
 <title>FileProcess&#45;&gt;LDA</title>
 <path fill="none" stroke="black" d="M735.322,-224.303C732.519,-223.481 729.729,-222.705 727,-222 633.662,-197.894 521.257,-180.752 464.181,-172.869"/>
 <polygon fill="black" stroke="black" points="464.565,-169.389 454.184,-171.505 463.619,-176.325 464.565,-169.389"/>
@@ -143,7 +143,7 @@
 <text text-anchor="middle" x="664" y="-235.8" font-family="Helvetica,sans-Serif" font-size="14.00">n_components</text>
 </g>
 <!-- n_components&#45;&gt;LDA -->
-<g id="edge3" class="edge">
+<g id="edge11" class="edge">
 <title>n_components&#45;&gt;LDA</title>
 <path fill="none" stroke="black" d="M609.924,-223.572C565.183,-209.98 502.838,-191.039 463.714,-179.154"/>
 <polygon fill="black" stroke="black" points="464.637,-175.776 454.052,-176.218 462.602,-182.474 464.637,-175.776"/>
@@ -155,7 +155,7 @@
 <text text-anchor="middle" x="544" y="-235.8" font-family="Helvetica,sans-Serif" font-size="14.00">n_top_words</text>
 </g>
 <!-- n_top_words&#45;&gt;LDA -->
-<g id="edge4" class="edge">
+<g id="edge1" class="edge">
 <title>n_top_words&#45;&gt;LDA</title>
 <path fill="none" stroke="black" d="M514.476,-221.831C498.826,-212.2 479.473,-200.291 462.953,-190.125"/>
 <polygon fill="black" stroke="black" points="464.46,-186.942 454.109,-184.682 460.791,-192.904 464.46,-186.942"/>
@@ -167,7 +167,7 @@
 <text text-anchor="middle" x="427" y="-235.8" font-family="Helvetica,sans-Serif" font-size="14.00">random_state</text>
 </g>
 <!-- random_state&#45;&gt;LDA -->
-<g id="edge6" class="edge">
+<g id="edge3" class="edge">
 <title>random_state&#45;&gt;LDA</title>
 <path fill="none" stroke="black" d="M427,-221.831C427,-214.131 427,-204.974 427,-196.417"/>
 <polygon fill="black" stroke="black" points="430.5,-196.413 427,-186.413 423.5,-196.413 430.5,-196.413"/>
@@ -179,7 +179,7 @@
 <text text-anchor="middle" x="323" y="-235.8" font-family="Helvetica,sans-Serif" font-size="14.00">max_iter</text>
 </g>
 <!-- max_iter&#45;&gt;LDA -->
-<g id="edge8" class="edge">
+<g id="edge5" class="edge">
 <title>max_iter&#45;&gt;LDA</title>
 <path fill="none" stroke="black" d="M349.244,-221.831C362.299,-212.793 378.253,-201.748 392.305,-192.02"/>
 <polygon fill="black" stroke="black" points="394.535,-194.733 400.765,-186.163 390.551,-188.977 394.535,-194.733"/>
@@ -191,7 +191,7 @@
 <text text-anchor="middle" x="210" y="-235.8" font-family="Helvetica,sans-Serif" font-size="14.00">learning_method</text>
 </g>
 <!-- learning_method&#45;&gt;LDA -->
-<g id="edge10" class="edge">
+<g id="edge7" class="edge">
 <title>learning_method&#45;&gt;LDA</title>
 <path fill="none" stroke="black" d="M264.478,-221.924C303.786,-208.882 355.794,-191.626 390.27,-180.187"/>
 <polygon fill="black" stroke="black" points="391.549,-183.45 399.938,-176.979 389.345,-176.806 391.549,-183.45"/>
@@ -203,7 +203,7 @@
 <text text-anchor="middle" x="78" y="-235.8" font-family="Helvetica,sans-Serif" font-size="14.00">learning_offset</text>
 </g>
 <!-- learning_offset&#45;&gt;LDA -->
-<g id="edge2" class="edge">
+<g id="edge10" class="edge">
 <title>learning_offset&#45;&gt;LDA</title>
 <path fill="none" stroke="black" d="M131.871,-224.257C134.952,-223.466 138.011,-222.708 141,-222 229.461,-201.058 334.835,-182.882 389.662,-173.926"/>
 <polygon fill="black" stroke="black" points="390.305,-177.368 399.615,-172.311 389.183,-170.458 390.305,-177.368"/>

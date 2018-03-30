@@ -7,6 +7,6 @@ resource(2, 'output.txt').
 data_resource(1, 1).
 data_resource(2, 2).
 data_resource(3, 1).
-data_resource(26, 2).
+data_resource(14, 2).
 
 % FACT: uri_variable_value(resource_id, uri_variable_id, uri_variable_value).

@@ -1,12 +1,12 @@
 
 % FACT: program(program_id, program_name, qualified_program_name, begin_annotation_id, end_annotation_id).
-program(1, 'topic_modeling', 'topic_modeling', 1, 82).
+program(1, 'topic_modeling', 'topic_modeling', 1, 78).
 program(2, 'AccessText', 'topic_modeling.AccessText', 8, 16).
 program(3, 'PreprocessFile', 'topic_modeling.PreprocessFile', 17, 26).
-program(4, 'LDA', 'topic_modeling.LDA', 27, 81).
-program(5, 'tf_calculation', 'topic_modeling.LDA.tf_calculation', 39, 47).
-program(6, 'LatentDirichletAllocation', 'topic_modeling.LDA.LatentDirichletAllocation', 48, 69).
-program(7, 'print_top_words', 'topic_modeling.LDA.print_top_words', 70, 80).
+program(4, 'LDA', 'topic_modeling.LDA', 27, 77).
+program(5, 'tf_calculation', 'topic_modeling.LDA.tf_calculation', 38, 46).
+program(6, 'LatentDirichletAllocation', 'topic_modeling.LDA.LatentDirichletAllocation', 47, 66).
+program(7, 'print_top_words', 'topic_modeling.LDA.print_top_words', 67, 76).
 
 % FACT: workflow(program_id).
 workflow(1).
@@ -39,23 +39,22 @@ port(13, 'in', 'max_iter', 'topic_modeling.LDA<-max_iter', 33, 11).
 port(14, 'in', 'learning_method', 'topic_modeling.LDA<-learning_method', 34, 12).
 port(15, 'in', 'learning_offset', 'topic_modeling.LDA<-learning_offset', 35, 13).
 port(16, 'out', 'Topicmodeling_Result', 'topic_modeling.LDA->Topicmodeling_Result', 36, 14).
-port(17, 'in', 'file_valid', 'topic_modeling.LDA.tf_calculation<-file_valid', 41, 15).
-port(18, 'out', 'tf', 'topic_modeling.LDA.tf_calculation->tf', 43, 16).
-port(19, 'out', 'tf_vectorizer', 'topic_modeling.LDA.tf_calculation->tf_vectorizer', 45, 17).
-port(20, 'param', 'n_components', 'topic_modeling.LDA.LatentDirichletAllocation<-n_components', 50, 18).
-port(21, 'param', 'tf', 'topic_modeling.LDA.LatentDirichletAllocation<-tf', 51, 16).
-port(22, 'param', 'tf_vectorizer', 'topic_modeling.LDA.LatentDirichletAllocation<-tf_vectorizer', 53, 17).
-port(23, 'in', 'max_iter', 'topic_modeling.LDA.LatentDirichletAllocation<-max_iter', 55, 19).
-port(24, 'in', 'learning_method', 'topic_modeling.LDA.LatentDirichletAllocation<-learning_method', 57, 20).
-port(25, 'in', 'learning_offset', 'topic_modeling.LDA.LatentDirichletAllocation<-learning_offset', 59, 21).
-port(26, 'in', 'random_state', 'topic_modeling.LDA.LatentDirichletAllocation<-random_state', 61, 22).
-port(27, 'out', 'lda', 'topic_modeling.LDA.LatentDirichletAllocation->lda', 63, 23).
-port(28, 'out', 'tf_feature_names', 'topic_modeling.LDA.LatentDirichletAllocation->tf_feature_names', 65, 24).
-port(29, 'out', 'Topicmodeling_Result', 'topic_modeling.LDA.LatentDirichletAllocation->Topicmodeling_Result', 67, 25).
-port(30, 'in', 'lda', 'topic_modeling.LDA.print_top_words<-lda', 72, 23).
-port(31, 'in', 'tf_feature_names', 'topic_modeling.LDA.print_top_words<-tf_feature_names', 75, 24).
-port(32, 'param', 'n_top_words', 'topic_modeling.LDA.print_top_words<-n_top_words', 77, 26).
-port(33, 'out', 'Topicmodeling_Result', 'topic_modeling.LDA.print_top_words->Topicmodeling_Result', 78, 25).
+port(17, 'in', 'file_valid', 'topic_modeling.LDA.tf_calculation<-file_valid', 40, 15).
+port(18, 'out', 'tf', 'topic_modeling.LDA.tf_calculation->tf', 42, 16).
+port(19, 'out', 'tf_vectorizer', 'topic_modeling.LDA.tf_calculation->tf_vectorizer', 44, 17).
+port(20, 'param', 'n_components', 'topic_modeling.LDA.LatentDirichletAllocation<-n_components', 49, 18).
+port(21, 'param', 'tf', 'topic_modeling.LDA.LatentDirichletAllocation<-tf', 50, 16).
+port(22, 'param', 'tf_vectorizer', 'topic_modeling.LDA.LatentDirichletAllocation<-tf_vectorizer', 52, 17).
+port(23, 'in', 'max_iter', 'topic_modeling.LDA.LatentDirichletAllocation<-max_iter', 54, 19).
+port(24, 'in', 'learning_method', 'topic_modeling.LDA.LatentDirichletAllocation<-learning_method', 56, 20).
+port(25, 'in', 'learning_offset', 'topic_modeling.LDA.LatentDirichletAllocation<-learning_offset', 58, 21).
+port(26, 'in', 'random_state', 'topic_modeling.LDA.LatentDirichletAllocation<-random_state', 60, 22).
+port(27, 'out', 'lda', 'topic_modeling.LDA.LatentDirichletAllocation->lda', 62, 23).
+port(28, 'out', 'tf_feature_names', 'topic_modeling.LDA.LatentDirichletAllocation->tf_feature_names', 64, 24).
+port(29, 'in', 'lda', 'topic_modeling.LDA.print_top_words<-lda', 69, 23).
+port(30, 'in', 'tf_feature_names', 'topic_modeling.LDA.print_top_words<-tf_feature_names', 72, 24).
+port(31, 'param', 'n_top_words', 'topic_modeling.LDA.print_top_words<-n_top_words', 74, 25).
+port(32, 'out', 'Topicmodeling_Result', 'topic_modeling.LDA.print_top_words->Topicmodeling_Result', 75, 26).
 
 % FACT: port_alias(port_id, alias).
 port_alias(3, 'Static_text').
@@ -68,16 +67,14 @@ port_alias(21, 'term_frequency').
 port_alias(22, 'term_frequency_vectorizer').
 port_alias(27, 'LDA_model').
 port_alias(28, 'TermFrequency_feature_names').
-port_alias(30, 'LDA_model').
-port_alias(31, 'TermFrequency_feature_names').
+port_alias(29, 'LDA_model').
+port_alias(30, 'TermFrequency_feature_names').
 
 % FACT: port_uri_template(port_id, uri).
 port_uri_template(1, 'file:book1.txt').
 port_uri_template(2, 'file:output.txt').
 port_uri_template(3, 'file:book1.txt').
 port_uri_template(16, 'file:output.txt').
-port_uri_template(29, 'file:output.txt').
-port_uri_template(33, 'file:output.txt').
 
 % FACT: has_in_port(block_id, port_id).
 has_in_port(1, 1).
@@ -100,9 +97,9 @@ has_in_port(6, 23).
 has_in_port(6, 24).
 has_in_port(6, 25).
 has_in_port(6, 26).
+has_in_port(7, 29).
 has_in_port(7, 30).
 has_in_port(7, 31).
-has_in_port(7, 32).
 
 % FACT: has_out_port(block_id, port_id).
 has_out_port(1, 2).
@@ -113,8 +110,7 @@ has_out_port(5, 18).
 has_out_port(5, 19).
 has_out_port(6, 27).
 has_out_port(6, 28).
-has_out_port(6, 29).
-has_out_port(7, 33).
+has_out_port(7, 32).
 
 % FACT: data(data_id, data_name, qualified_data_name).
 data(1, 'Static_text', '[Static_text]').
@@ -141,8 +137,8 @@ data(21, 'learning_offset', 'topic_modeling.LDA[learning_offset]').
 data(22, 'random_state', 'topic_modeling.LDA[random_state]').
 data(23, 'LDA_model', 'topic_modeling.LDA[LDA_model]').
 data(24, 'TermFrequency_feature_names', 'topic_modeling.LDA[TermFrequency_feature_names]').
-data(25, 'Topicmodeling_Result', 'topic_modeling.LDA[Topicmodeling_Result]').
-data(26, 'n_top_words', 'topic_modeling.LDA[n_top_words]').
+data(25, 'n_top_words', 'topic_modeling.LDA[n_top_words]').
+data(26, 'Topicmodeling_Result', 'topic_modeling.LDA[Topicmodeling_Result]').
 
 % FACT: channel(channel_id, data_id).
 channel(19, 2).
@@ -161,14 +157,14 @@ channel(7, 21).
 channel(8, 22).
 channel(9, 23).
 channel(10, 24).
-channel(11, 26).
+channel(11, 25).
 channel(12, 8).
 channel(13, 9).
 channel(14, 10).
 channel(15, 11).
 channel(16, 12).
 channel(17, 13).
-channel(18, 25).
+channel(18, 26).
 
 % FACT: port_connects_to_channel(port_id, channel_id).
 port_connects_to_channel(16, 19).
@@ -179,7 +175,7 @@ port_connects_to_channel(8, 22).
 port_connects_to_channel(9, 22).
 port_connects_to_channel(3, 23).
 port_connects_to_channel(16, 24).
-port_connects_to_channel(33, 1).
+port_connects_to_channel(32, 1).
 port_connects_to_channel(20, 2).
 port_connects_to_channel(18, 3).
 port_connects_to_channel(21, 3).
@@ -190,17 +186,17 @@ port_connects_to_channel(24, 6).
 port_connects_to_channel(25, 7).
 port_connects_to_channel(26, 8).
 port_connects_to_channel(27, 9).
-port_connects_to_channel(30, 9).
+port_connects_to_channel(29, 9).
 port_connects_to_channel(28, 10).
-port_connects_to_channel(31, 10).
-port_connects_to_channel(32, 11).
+port_connects_to_channel(30, 10).
+port_connects_to_channel(31, 11).
 port_connects_to_channel(20, 12).
-port_connects_to_channel(32, 13).
+port_connects_to_channel(31, 13).
 port_connects_to_channel(26, 14).
 port_connects_to_channel(23, 15).
 port_connects_to_channel(24, 16).
 port_connects_to_channel(25, 17).
-port_connects_to_channel(33, 18).
+port_connects_to_channel(32, 18).
 
 % FACT: inflow_connects_to_channel(port_id, channel_id).
 inflow_connects_to_channel(1, 20).

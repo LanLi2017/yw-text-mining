@@ -82,7 +82,7 @@
 <path fill="#ffe4b5" stroke="black" d="M275.991,-78.5C275.991,-78.5 376.009,-78.5 376.009,-78.5 382.009,-78.5 388.009,-84.5 388.009,-90.5 388.009,-90.5 388.009,-102.5 388.009,-102.5 388.009,-108.5 382.009,-114.5 376.009,-114.5 376.009,-114.5 275.991,-114.5 275.991,-114.5 269.991,-114.5 263.991,-108.5 263.991,-102.5 263.991,-102.5 263.991,-90.5 263.991,-90.5 263.991,-84.5 269.991,-78.5 275.991,-78.5"/>
 <text text-anchor="middle" x="326" y="-102.8" font-family="Courier,monospace" font-weight="bold" font-size="9.00">Topicmodeling_Result</text>
 <polyline fill="none" stroke="black" points="263.991,-96.5 388.009,-96.5 "/>
-<text text-anchor="middle" x="326" y="-84.8" font-family="Courier,monospace" font-weight="bold" font-size="9.00"> </text>
+<text text-anchor="start" x="271.991" y="-84.8" font-family="Courier,monospace" font-weight="bold" font-size="9.00">output.txt</text>
 </g>
 <!-- LDA&#45;&gt;Topicmodeling_Result -->
 <g id="edge14" class="edge">
