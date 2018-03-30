@@ -10,7 +10,7 @@ PreprocessFile [shape=record rankdir=LR label="{<f0> PreprocessFile |<f1> To pre
 node[shape=box style=filled fillcolor="#CCFFCC" peripheries=2 fontname=Courier]
 LDA
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-Topicmodeling_Result
+Topicmodeling_Result [shape=record rankdir=LR label="{<f0> Topicmodeling_Result |<f1> file\:output.txt}"];
 Static_text [shape=record rankdir=LR label="{<f0> Static_text |<f1> file\:book1.txt}"];
 TextRead
 FileProcess

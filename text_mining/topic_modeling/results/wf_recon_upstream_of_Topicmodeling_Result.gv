@@ -38,6 +38,10 @@ subgraph cluster_outflows_inner { label=""; color=white
 node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
 Topicmodeling_Result_outflow [label=""]
 }}
+random_state -> LDA
+stopwords -> PreprocessFile
+max_iter -> LDA
+regular_expression -> PreprocessFile
 learning_method -> LDA
 FileProcess -> LDA
 Static_text -> AccessText
@@ -45,10 +49,6 @@ learning_offset -> LDA
 n_components -> LDA
 n_top_words -> LDA
 TextRead -> PreprocessFile
-random_state -> LDA
-stopwords -> PreprocessFile
-max_iter -> LDA
-regular_expression -> PreprocessFile
 AccessText -> TextRead
 PreprocessFile -> FileProcess
 LDA -> Topicmodeling_Result

@@ -39,7 +39,7 @@ Valid_file=[w for w in clean_file if regexr.match(w)]
 # @in max_iter
 # @in learning_method
 # @in learning_offset
-# @out Topicmodeling_Result
+# @out Topicmodeling_Result @desc log file which contains the topics @uri file:output.txt
 
 
 # @begin tf_calculation @desc using CountVectorizer from sklearn library to calculate the term frequency
@@ -61,6 +61,8 @@ tf=tf_vectorizer.fit_transform(Valid_file)
 # @in random_state @desc random number generator
 # @out lda @as LDA_model
 # @out tf_feature_names @as TermFrequency_feature_names
+# @out Topicmodeling_Result @uri file:output.txt
+
 n_components=10
 lda=LatentDirichletAllocation(n_components=n_components, max_iter=500,
                                 learning_method='online',
