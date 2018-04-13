@@ -5,28 +5,29 @@ label=topic_modeling
 subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
 subgraph cluster_workflow_box_inner { label=""; color=white
 node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
-AccessText [shape=record rankdir=LR label="{<f0> AccessText |<f1> To read the text data from book1.txt file}"];
-PreprocessFile [shape=record rankdir=LR label="{<f0> PreprocessFile |<f1> To preprocess the text data}"];
 node[shape=box style=filled fillcolor="#CCFFCC" peripheries=2 fontname=Courier]
-LDA
+TrainingCorpus [shape=record rankdir=LR label="{<f0> TrainingCorpus |<f1> Using Gensim to construct training corpus}"];
+Evaluation_Model [shape=record rankdir=LR label="{<f0> Evaluation_Model |<f1> Using different models to do Topic and Transformation}"];
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-Topicmodeling_Result [shape=record rankdir=LR label="{<f0> Topicmodeling_Result |<f1> file\:output.txt}"];
-Static_text [shape=record rankdir=LR label="{<f0> Static_text |<f1> file\:book1.txt}"];
-TextRead
-FileProcess
+LDA_model [shape=record rankdir=LR label="{<f0> LDA_model |<f1> file\:LDA_output.txt}"];
+HDP_model [shape=record rankdir=LR label="{<f0> HDP_model |<f1> file\:HDP_output.txt}"];
+LSI_model [shape=record rankdir=LR label="{<f0> LSI_model |<f1> file\:LSI_output.txt}"];
+Evaluation_result
+Static_text [shape=record rankdir=LR label="{<f0> Static_text |<f1> file\:news2012.txt}"];
+Corpus
+dictionary
 node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
-AccessText -> TextRead
-Static_text -> AccessText
-PreprocessFile -> FileProcess
-stopwords -> PreprocessFile
-regular_expression -> PreprocessFile
-TextRead -> PreprocessFile
-LDA -> Topicmodeling_Result
-FileProcess -> LDA
-random_state -> LDA
-max_iter -> LDA
-learning_method -> LDA
-learning_offset -> LDA
+TrainingCorpus -> Corpus
+TrainingCorpus -> dictionary
+Static_text -> TrainingCorpus
+stopwords -> TrainingCorpus
+regular_expression -> TrainingCorpus
+Evaluation_Model -> LDA_model
+Evaluation_Model -> HDP_model
+Evaluation_Model -> LSI_model
+Evaluation_Model -> Evaluation_result
+Corpus -> Evaluation_Model
+dictionary -> Evaluation_Model
 }}
 subgraph cluster_input_ports_group_outer { label=""; color=white
 subgraph cluster_input_ports_group_inner { label=""; color=white
@@ -36,8 +37,14 @@ Static_text_input_port [label=""]
 subgraph cluster_output_ports_group_outer { label=""; color=white
 subgraph cluster_output_ports_group_inner { label=""; color=white
 node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
-Topicmodeling_Result_output_port [label=""]
+LDA_model_output_port [label=""]
+HDP_model_output_port [label=""]
+LSI_model_output_port [label=""]
+Evaluation_result_output_port [label=""]
 }}
 Static_text_input_port -> Static_text
-Topicmodeling_Result -> Topicmodeling_Result_output_port
+LDA_model -> LDA_model_output_port
+HDP_model -> HDP_model_output_port
+LSI_model -> LSI_model_output_port
+Evaluation_result -> Evaluation_result_output_port
 }

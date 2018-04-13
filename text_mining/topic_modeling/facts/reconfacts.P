@@ -1,12 +1,21 @@
 
 % FACT: resource(resource_id, resource_uri).
-resource(1, 'book1.txt').
-resource(2, 'output.txt').
+resource(1, 'news2012.txt').
+resource(2, 'LDA_output.txt').
+resource(3, 'HDP_output.txt').
+resource(4, 'LSI_output.txt').
+resource(5, 'book1.txt').
 
 % FACT: data_resource(data_id, resource_id).
 data_resource(1, 1).
 data_resource(2, 2).
-data_resource(3, 1).
-data_resource(14, 2).
+data_resource(3, 3).
+data_resource(4, 4).
+data_resource(6, 5).
+data_resource(11, 1).
+data_resource(16, 2).
+data_resource(17, 3).
+data_resource(18, 4).
+data_resource(25, 4).
 
 % FACT: uri_variable_value(resource_id, uri_variable_id, uri_variable_value).
