@@ -1,5 +1,0 @@
-0.014*"said." + 0.009*"would" + 0.008*"one" + 0.006*"said" + 0.006*"could" + 0.006*"new" + 0.006*"long" + 0.005*"two" + 0.005*"percent" + 0.005*"like"
-0.011*"new" + 0.006*"high" + 0.006*"back" + 0.006*"one" + 0.006*"said" + 0.006*"use" + 0.005*"would" + 0.005*"number" + 0.005*"years" + 0.005*"first"
-0.013*"said" + 0.008*"like" + 0.007*"new" + 0.007*"says" + 0.007*"much" + 0.004*"former" + 0.004*"january" + 0.004*"one" + 0.004*"world" + 0.004*"called"
-0.008*"said" + 0.007*"people" + 0.006*"first" + 0.005*"mr." + 0.005*"new" + 0.005*"government" + 0.004*"last" + 0.004*"another" + 0.004*"violence" + 0.004*"england"
-0.006*"would" + 0.005*"one" + 0.005*"said" + 0.005*"people" + 0.005*"year" + 0.005*"going" + 0.005*"enough" + 0.004*"mr." + 0.004*"high" + 0.004*"final"
