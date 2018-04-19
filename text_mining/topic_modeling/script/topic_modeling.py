@@ -1,12 +1,10 @@
 
 # @begin topic_modeling @desc Exercise YW for Analysing Text with NLTk
-# @in Static_text @uri file:../../nipstxt
+# @in Static_text @uri file:nipstxt.txt
 # @param num_topics
 # @param num_iteration
-# @out LDA_model @desc Transformation from BOW counts into a topic space @uri file:LDA_output.txt
-# @out HDP_model @desc non-parametric bayesian method @uri file:HDP_output.txt
-# @out LSI_model @desc Transformation from BOW or TfIDF @uri file:LSI_output.txt
-# @out log @as run_log @desc record the iterations and log_perplexity and time stamp
+# @out LDA_model @desc Transformation from BOW counts into a topic space @uri file:LDA_model.txt
+# @out log @as run_log @desc record the iterations and log_perplexity and time stamp @uri file:log.txt
 import os
 import time
 import datetime
@@ -18,7 +16,7 @@ from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.feature_extraction.text import CountVectorizer
 
 # @begin ConstructCorpus @desc Using Gensim to construct training corpus and testing corpus
-# @in text_data_path @as Static_text @desc Text file which contains static text data @uri file:book1.txt
+# @in text_data_path @as Static_text @desc Text file which contains static text data @uri file:nipstxt.txt
 # @in stopwords
 # @in regexr @as regular_expression
 # @out dictionary @as dictionary @desc a mapping between words and their integer ids
@@ -30,7 +28,7 @@ yr = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '1
 dir = ['nips' + year for year in yr]
 
 # @begin AccessText @desc To read the text data from book1.txt file
-# @in text_data_path @as Static_text @desc Text file which contains static text data @uri file:../../nipstxt
+# @in text_data_path @as Static_text @desc Text file which contains static text data @uri file:nipstxt.txt
 # @out text_file @as TextRead
 
 # Read all texts into a list.
@@ -86,8 +84,8 @@ test_corpus = corpus[int(len(corpus)*.80+1):]
 # @in test_corpus
 # @param num_iteration @desc number of maximum iterations
 # @param num_topics @desc number of topics
-# @out LDA_model @desc Transformation from BOW counts into a topic space @uri file:LDA_output.txt
-# @out log @as run_log
+# @out LDA_model @desc Transformation from BOW counts into a topic space @uri file:LDA_model.txt
+# @out log @as run_log @uri file:log.txt
 
 
 # @begin get_iteration_number @desc training model to get the converge iteration number
@@ -96,7 +94,7 @@ test_corpus = corpus[int(len(corpus)*.80+1):]
 # @in dictionary
 # @param num_iteration
 # @param num_topics
-# @out log @as run_log
+# @out log @as run_log @uri file:log.txt
 # @out iter @as converge_iteration @desc number of iterations when converge
 _num_topics=5
 num_iteration=500
@@ -126,8 +124,8 @@ with open('log.txt','w')as log:
 # @in dictionary
 # @in num_topics
 # @in iter @as converge_iteration
-# @out LDA_model
-with open('LDA_output.txt','wt')as f0:
+# @out LDA_model @uri file:LDA_model.txt
+with open('LDA_model.txt','wt')as f0:
     LDA_model=models.LdaModel(corpus=train_corpus,id2word=dictionary,num_topics=_num_topics,iterations=iter)
     for topic in range(_num_topics):
         f0.write(str(LDA_model.print_topic(topic))+'\n')

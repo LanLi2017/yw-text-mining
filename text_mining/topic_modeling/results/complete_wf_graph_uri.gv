@@ -9,9 +9,9 @@ node[shape=box style=filled fillcolor="#CCFFCC" peripheries=2 fontname=Courier]
 ConstructCorpus [shape=record rankdir=LR label="{<f0> ConstructCorpus |<f1> Using Gensim to construct training corpus and testing corpus}"];
 Train_Predict_Model [shape=record rankdir=LR label="{<f0> Train_Predict_Model |<f1> Using gensim.LDA to training model and predicting, get the converge number}"];
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-LDA_model [shape=record rankdir=LR label="{<f0> LDA_model |<f1> file\:LDA_output.txt}"];
-run_log
-Static_text [shape=record rankdir=LR label="{<f0> Static_text |<f1> file\:../../nipstxt}"];
+LDA_model [shape=record rankdir=LR label="{<f0> LDA_model |<f1> file\:LDA_model.txt}"];
+run_log [shape=record rankdir=LR label="{<f0> run_log |<f1> file\:log.txt}"];
+Static_text [shape=record rankdir=LR label="{<f0> Static_text |<f1> file\:nipstxt.txt}"];
 train_corpus
 dictionary
 test_corpus

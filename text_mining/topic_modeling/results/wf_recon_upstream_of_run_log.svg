@@ -88,7 +88,7 @@
 <path fill="#ffe4b5" stroke="black" d="M258,-78.5C258,-78.5 288,-78.5 288,-78.5 294,-78.5 300,-84.5 300,-90.5 300,-90.5 300,-102.5 300,-102.5 300,-108.5 294,-114.5 288,-114.5 288,-114.5 258,-114.5 258,-114.5 252,-114.5 246,-108.5 246,-102.5 246,-102.5 246,-90.5 246,-90.5 246,-84.5 252,-78.5 258,-78.5"/>
 <text text-anchor="middle" x="272.903" y="-102.8" font-family="Courier,monospace" font-weight="bold" font-size="9.00">run_log</text>
 <polyline fill="none" stroke="black" points="246,-96.5 299.806,-96.5 "/>
-<text text-anchor="middle" x="272.903" y="-84.8" font-family="Courier,monospace" font-weight="bold" font-size="9.00"> </text>
+<text text-anchor="start" x="254" y="-84.8" font-family="Courier,monospace" font-weight="bold" font-size="9.00">log.txt</text>
 </g>
 <!-- Train_Predict_Model&#45;&gt;run_log -->
 <g id="edge12" class="edge">

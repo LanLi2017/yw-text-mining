@@ -1,12 +1,12 @@
 
 % FACT: program(program_id, program_name, qualified_program_name, begin_annotation_id, end_annotation_id).
-program(1, 'topic_modeling', 'topic_modeling', 1, 84).
-program(2, 'ConstructCorpus', 'topic_modeling.ConstructCorpus', 13, 48).
-program(3, 'AccessText', 'topic_modeling.ConstructCorpus.AccessText', 29, 37).
-program(4, 'PreprocessFile', 'topic_modeling.ConstructCorpus.PreprocessFile', 38, 47).
-program(5, 'Train_Predict_Model', 'topic_modeling.Train_Predict_Model', 49, 83).
-program(6, 'get_iteration_number', 'topic_modeling.Train_Predict_Model.get_iteration_number', 63, 75).
-program(7, 'LDA_model', 'topic_modeling.Train_Predict_Model.LDA_model', 76, 82).
+program(1, 'topic_modeling', 'topic_modeling', 1, 88).
+program(2, 'ConstructCorpus', 'topic_modeling.ConstructCorpus', 14, 49).
+program(3, 'AccessText', 'topic_modeling.ConstructCorpus.AccessText', 30, 38).
+program(4, 'PreprocessFile', 'topic_modeling.ConstructCorpus.PreprocessFile', 39, 48).
+program(5, 'Train_Predict_Model', 'topic_modeling.Train_Predict_Model', 50, 87).
+program(6, 'get_iteration_number', 'topic_modeling.Train_Predict_Model.get_iteration_number', 65, 78).
+program(7, 'LDA_model', 'topic_modeling.Train_Predict_Model.LDA_model', 79, 86).
 
 % FACT: workflow(program_id).
 workflow(1).
@@ -29,38 +29,38 @@ port(2, 'param', 'num_topics', 'topic_modeling<-num_topics', 5, 2).
 port(3, 'param', 'num_iteration', 'topic_modeling<-num_iteration', 6, 3).
 port(4, 'out', 'LDA_model', 'topic_modeling->LDA_model', 7, 4).
 port(5, 'out', 'log', 'topic_modeling->log', 10, 5).
-port(6, 'in', 'text_data_path', 'topic_modeling.ConstructCorpus<-text_data_path', 15, 6).
-port(7, 'in', 'stopwords', 'topic_modeling.ConstructCorpus<-stopwords', 19, 7).
-port(8, 'in', 'regexr', 'topic_modeling.ConstructCorpus<-regexr', 20, 8).
-port(9, 'out', 'dictionary', 'topic_modeling.ConstructCorpus->dictionary', 22, 9).
-port(10, 'out', 'train_corpus', 'topic_modeling.ConstructCorpus->train_corpus', 25, 10).
-port(11, 'out', 'test_corpus', 'topic_modeling.ConstructCorpus->test_corpus', 27, 11).
-port(12, 'in', 'text_data_path', 'topic_modeling.ConstructCorpus.AccessText<-text_data_path', 31, 12).
-port(13, 'out', 'text_file', 'topic_modeling.ConstructCorpus.AccessText->text_file', 35, 13).
-port(14, 'in', 'stopwords', 'topic_modeling.ConstructCorpus.PreprocessFile<-stopwords', 40, 14).
-port(15, 'in', 'regexr', 'topic_modeling.ConstructCorpus.PreprocessFile<-regexr', 41, 15).
-port(16, 'in', 'TextRead', 'topic_modeling.ConstructCorpus.PreprocessFile<-TextRead', 43, 13).
-port(17, 'out', 'dictionary', 'topic_modeling.ConstructCorpus.PreprocessFile->dictionary', 44, 16).
-port(18, 'out', 'train_corpus', 'topic_modeling.ConstructCorpus.PreprocessFile->train_corpus', 45, 17).
-port(19, 'out', 'test_corpus', 'topic_modeling.ConstructCorpus.PreprocessFile->test_corpus', 46, 18).
-port(20, 'in', 'train_corpus', 'topic_modeling.Train_Predict_Model<-train_corpus', 51, 10).
-port(21, 'in', 'dictionary', 'topic_modeling.Train_Predict_Model<-dictionary', 52, 9).
-port(22, 'in', 'test_corpus', 'topic_modeling.Train_Predict_Model<-test_corpus', 53, 11).
-port(23, 'param', 'num_iteration', 'topic_modeling.Train_Predict_Model<-num_iteration', 54, 19).
-port(24, 'param', 'num_topics', 'topic_modeling.Train_Predict_Model<-num_topics', 56, 20).
-port(25, 'out', 'LDA_model', 'topic_modeling.Train_Predict_Model->LDA_model', 58, 21).
-port(26, 'out', 'log', 'topic_modeling.Train_Predict_Model->log', 61, 22).
-port(27, 'in', 'train_corpus', 'topic_modeling.Train_Predict_Model.get_iteration_number<-train_corpus', 65, 23).
-port(28, 'in', 'test_corpus', 'topic_modeling.Train_Predict_Model.get_iteration_number<-test_corpus', 66, 24).
-port(29, 'in', 'dictionary', 'topic_modeling.Train_Predict_Model.get_iteration_number<-dictionary', 67, 25).
-port(30, 'param', 'num_iteration', 'topic_modeling.Train_Predict_Model.get_iteration_number<-num_iteration', 68, 26).
-port(31, 'param', 'num_topics', 'topic_modeling.Train_Predict_Model.get_iteration_number<-num_topics', 69, 27).
-port(32, 'out', 'log', 'topic_modeling.Train_Predict_Model.get_iteration_number->log', 70, 28).
-port(33, 'out', 'iter', 'topic_modeling.Train_Predict_Model.get_iteration_number->iter', 72, 29).
-port(34, 'in', 'dictionary', 'topic_modeling.Train_Predict_Model.LDA_model<-dictionary', 77, 25).
-port(35, 'in', 'num_topics', 'topic_modeling.Train_Predict_Model.LDA_model<-num_topics', 78, 27).
-port(36, 'in', 'iter', 'topic_modeling.Train_Predict_Model.LDA_model<-iter', 79, 29).
-port(37, 'out', 'LDA_model', 'topic_modeling.Train_Predict_Model.LDA_model->LDA_model', 81, 30).
+port(6, 'in', 'text_data_path', 'topic_modeling.ConstructCorpus<-text_data_path', 16, 6).
+port(7, 'in', 'stopwords', 'topic_modeling.ConstructCorpus<-stopwords', 20, 7).
+port(8, 'in', 'regexr', 'topic_modeling.ConstructCorpus<-regexr', 21, 8).
+port(9, 'out', 'dictionary', 'topic_modeling.ConstructCorpus->dictionary', 23, 9).
+port(10, 'out', 'train_corpus', 'topic_modeling.ConstructCorpus->train_corpus', 26, 10).
+port(11, 'out', 'test_corpus', 'topic_modeling.ConstructCorpus->test_corpus', 28, 11).
+port(12, 'in', 'text_data_path', 'topic_modeling.ConstructCorpus.AccessText<-text_data_path', 32, 12).
+port(13, 'out', 'text_file', 'topic_modeling.ConstructCorpus.AccessText->text_file', 36, 13).
+port(14, 'in', 'stopwords', 'topic_modeling.ConstructCorpus.PreprocessFile<-stopwords', 41, 14).
+port(15, 'in', 'regexr', 'topic_modeling.ConstructCorpus.PreprocessFile<-regexr', 42, 15).
+port(16, 'in', 'TextRead', 'topic_modeling.ConstructCorpus.PreprocessFile<-TextRead', 44, 13).
+port(17, 'out', 'dictionary', 'topic_modeling.ConstructCorpus.PreprocessFile->dictionary', 45, 16).
+port(18, 'out', 'train_corpus', 'topic_modeling.ConstructCorpus.PreprocessFile->train_corpus', 46, 17).
+port(19, 'out', 'test_corpus', 'topic_modeling.ConstructCorpus.PreprocessFile->test_corpus', 47, 18).
+port(20, 'in', 'train_corpus', 'topic_modeling.Train_Predict_Model<-train_corpus', 52, 10).
+port(21, 'in', 'dictionary', 'topic_modeling.Train_Predict_Model<-dictionary', 53, 9).
+port(22, 'in', 'test_corpus', 'topic_modeling.Train_Predict_Model<-test_corpus', 54, 11).
+port(23, 'param', 'num_iteration', 'topic_modeling.Train_Predict_Model<-num_iteration', 55, 19).
+port(24, 'param', 'num_topics', 'topic_modeling.Train_Predict_Model<-num_topics', 57, 20).
+port(25, 'out', 'LDA_model', 'topic_modeling.Train_Predict_Model->LDA_model', 59, 21).
+port(26, 'out', 'log', 'topic_modeling.Train_Predict_Model->log', 62, 22).
+port(27, 'in', 'train_corpus', 'topic_modeling.Train_Predict_Model.get_iteration_number<-train_corpus', 67, 23).
+port(28, 'in', 'test_corpus', 'topic_modeling.Train_Predict_Model.get_iteration_number<-test_corpus', 68, 24).
+port(29, 'in', 'dictionary', 'topic_modeling.Train_Predict_Model.get_iteration_number<-dictionary', 69, 25).
+port(30, 'param', 'num_iteration', 'topic_modeling.Train_Predict_Model.get_iteration_number<-num_iteration', 70, 26).
+port(31, 'param', 'num_topics', 'topic_modeling.Train_Predict_Model.get_iteration_number<-num_topics', 71, 27).
+port(32, 'out', 'log', 'topic_modeling.Train_Predict_Model.get_iteration_number->log', 72, 28).
+port(33, 'out', 'iter', 'topic_modeling.Train_Predict_Model.get_iteration_number->iter', 75, 29).
+port(34, 'in', 'dictionary', 'topic_modeling.Train_Predict_Model.LDA_model<-dictionary', 80, 25).
+port(35, 'in', 'num_topics', 'topic_modeling.Train_Predict_Model.LDA_model<-num_topics', 81, 27).
+port(36, 'in', 'iter', 'topic_modeling.Train_Predict_Model.LDA_model<-iter', 82, 29).
+port(37, 'out', 'LDA_model', 'topic_modeling.Train_Predict_Model.LDA_model->LDA_model', 84, 30).
 
 % FACT: port_alias(port_id, alias).
 port_alias(5, 'run_log').
@@ -76,11 +76,15 @@ port_alias(33, 'converge_iteration').
 port_alias(36, 'converge_iteration').
 
 % FACT: port_uri_template(port_id, uri).
-port_uri_template(1, 'file:../../nipstxt').
-port_uri_template(4, 'file:LDA_output.txt').
-port_uri_template(6, 'file:book1.txt').
-port_uri_template(12, 'file:../../nipstxt').
-port_uri_template(25, 'file:LDA_output.txt').
+port_uri_template(1, 'file:nipstxt.txt').
+port_uri_template(4, 'file:LDA_model.txt').
+port_uri_template(5, 'file:log.txt').
+port_uri_template(6, 'file:nipstxt.txt').
+port_uri_template(12, 'file:nipstxt.txt').
+port_uri_template(25, 'file:LDA_model.txt').
+port_uri_template(26, 'file:log.txt').
+port_uri_template(32, 'file:log.txt').
+port_uri_template(37, 'file:LDA_model.txt').
 
 % FACT: has_in_port(block_id, port_id).
 has_in_port(1, 1).
