@@ -1,5 +1,0 @@
-0.005*"test" + 0.004*"great" + 0.004*"david" + 0.004*"per" + 0.004*"family," + 0.003*"big" + 0.003*"information" + 0.003*"struggled" + 0.003*"drive" + 0.003*"wrote"
-0.004*"investors" + 0.004*"saw" + 0.004*"issued" + 0.004*"may" + 0.004*"month" + 0.003*"heart" + 0.003*"late" + 0.003*"healthy" + 0.003*"moved" + 0.003*"machines"
-0.006*"depth" + 0.004*"development" + 0.004*"reward" + 0.004*"buck" + 0.003*"day," + 0.003*"way." + 0.003*"reveals" + 0.003*"china's" + 0.003*"consumer" + 0.003*"set"
-0.005*"keep" + 0.004*"year," + 0.004*"performances" + 0.003*"changing" + 0.003*"artist" + 0.003*"realise" + 0.003*"eurozone" + 0.003*"strong" + 0.003*"fears" + 0.003*"presidents"
-0.004*"figure" + 0.004*"southern" + 0.003*"recommended" + 0.003*"largest" + 0.003*"forces" + 0.003*"five" + 0.003*"person" + 0.003*"trading" + 0.003*"enough" + 0.003*"terrorist"
