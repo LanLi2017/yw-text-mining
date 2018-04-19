@@ -45,22 +45,30 @@ $QUERIES_DIR/list_workflow_outputs.sh > $RESULTS_DIR/workflow_outputs.txt
 #   Q1_pro   #
 ##############
 
-# draw worfklow graph upstream of Topicmodeling_Result
-$QUERIES_DIR/render_wf_graph_upstream_of_data_q1.sh \'Topicmodeling_Result\' > $RESULTS_DIR/wf_upstream_of_TopicModeling_Result.gv
-dot -Tpdf $RESULTS_DIR/wf_upstream_of_TopicModeling_Result.gv > $RESULTS_DIR/wf_upstream_of_TopicModeling_Result.pdf
-dot -Tsvg $RESULTS_DIR/wf_upstream_of_TopicModeling_Result.gv > $RESULTS_DIR/wf_upstream_of_TopicModeling_Result.svg
+# draw worfklow graph upstream of LDA_model
+$QUERIES_DIR/render_wf_graph_upstream_of_data_q1.sh \'LDA_model\' > $RESULTS_DIR/wf_upstream_of_LDA_model.gv
+dot -Tpdf $RESULTS_DIR/wf_upstream_of_LDA_model.gv > $RESULTS_DIR/wf_upstream_of_LDA_model.pdf
+dot -Tsvg $RESULTS_DIR/wf_upstream_of_LDA_model.gv > $RESULTS_DIR/wf_upstream_of_LDA_model.svg
 
-# draw worfklow graph upstream of FileProcess
-$QUERIES_DIR/render_wf_graph_upstream_of_data_q1.sh \'FileProcess\' > $RESULTS_DIR/wf_upstream_of_FileProcess.gv
-dot -Tpdf $RESULTS_DIR/wf_upstream_of_FileProcess.gv > $RESULTS_DIR/wf_upstream_of_FileProcess.pdf
-dot -Tsvg $RESULTS_DIR/wf_upstream_of_FileProcess.gv > $RESULTS_DIR/wf_upstream_of_FileProcess.svg
+# draw worfklow graph upstream of run_log
+$QUERIES_DIR/render_wf_graph_upstream_of_data_q1.sh \'run_log\' > $RESULTS_DIR/wf_upstream_of_run_log.gv
+dot -Tpdf $RESULTS_DIR/wf_upstream_of_run_log.gv > $RESULTS_DIR/wf_upstream_of_run_log.pdf
+dot -Tsvg $RESULTS_DIR/wf_upstream_of_run_log.gv > $RESULTS_DIR/wf_upstream_of_run_log.svg
 
-# draw worfklow graph upstream of TextRead
-$QUERIES_DIR/render_wf_graph_upstream_of_data_q1.sh \'TextRead\' > $RESULTS_DIR/wf_upstream_of_TextRead.gv
-dot -Tpdf $RESULTS_DIR/wf_upstream_of_TextRead.gv > $RESULTS_DIR/wf_upstream_of_TextRead.pdf
-dot -Tsvg $RESULTS_DIR/wf_upstream_of_TextRead.gv > $RESULTS_DIR/wf_upstream_of_TextRead.svg
+# draw worfklow graph upstream of dictionary
+$QUERIES_DIR/render_wf_graph_upstream_of_data_q1.sh \'dictionary\' > $RESULTS_DIR/wf_upstream_of_dictionary.gv
+dot -Tpdf $RESULTS_DIR/wf_upstream_of_dictionary.gv > $RESULTS_DIR/wf_upstream_of_dictionary.pdf
+dot -Tsvg $RESULTS_DIR/wf_upstream_of_dictionary.gv > $RESULTS_DIR/wf_upstream_of_dictionary.svg
 
+# draw worfklow graph upstream of train_corpus
+$QUERIES_DIR/render_wf_graph_upstream_of_data_q1.sh \'train_corpus\' > $RESULTS_DIR/wf_upstream_of_train_corpus.gv
+dot -Tpdf $RESULTS_DIR/wf_upstream_of_train_corpus.gv > $RESULTS_DIR/wf_upstream_of_train_corpus.pdf
+dot -Tsvg $RESULTS_DIR/wf_upstream_of_train_corpus.gv > $RESULTS_DIR/wf_upstream_of_train_corpus.svg
 
+# draw worfklow graph upstream of test_corpus
+$QUERIES_DIR/render_wf_graph_upstream_of_data_q1.sh \'test_corpus\' > $RESULTS_DIR/wf_upstream_of_test_corpus.gv
+dot -Tpdf $RESULTS_DIR/wf_upstream_of_test_corpus.gv > $RESULTS_DIR/wf_upstream_of_test_corpus.pdf
+dot -Tsvg $RESULTS_DIR/wf_upstream_of_test_corpus.gv > $RESULTS_DIR/wf_upstream_of_test_corpus.svg
 
 
 ##############
@@ -71,9 +79,11 @@ dot -Tsvg $RESULTS_DIR/wf_upstream_of_TextRead.gv > $RESULTS_DIR/wf_upstream_of_
 #$QUERIES_DIR/list_dependent_inputs_q2.sh > $RESULTS_DIR/#q2_pro_outputs.txt
 
 
-# list script inputs upstream of output data Topicmodeling_Result
-$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh \'Topicmodeling_Result\' Topicmodeling_Result > $RESULTS_DIR/inputs_upstream_of_Topicmodeling_Result.txt
+# list script inputs upstream of output data LDA_model
+$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh \'LDA_model\' Topicmodeling_Result > $RESULTS_DIR/inputs_upstream_of_LDA_model.txt
 
+# list script inputs upstream of output data run_log
+$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh \'run_log\' Topicmodeling_Result > $RESULTS_DIR/inputs_upstream_of_run_log.txt
 
 ##############
 #   Q3_pro   #
@@ -84,15 +94,20 @@ $QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh \'Static_text\' > $RESULTS
 dot -Tpdf $RESULTS_DIR/wf_downstream_of_Static_text.gv > $RESULTS_DIR/wf_downstream_of_Static_text.pdf
 dot -Tsvg $RESULTS_DIR/wf_downstream_of_Static_text.gv > $RESULTS_DIR/wf_downstream_of_Static_text.svg
 
-# draw worfklow graph downstream of TextRead
-$QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh \'TextRead\' > $RESULTS_DIR/wf_downstream_of_TextRead.gv
-dot -Tpdf $RESULTS_DIR/wf_downstream_of_TextRead.gv > $RESULTS_DIR/wf_downstream_of_TextRead.pdf
-dot -Tsvg $RESULTS_DIR/wf_downstream_of_TextRead.gv > $RESULTS_DIR/wf_downstream_of_TextRead.svg
+# draw worfklow graph downstream of dictionary
+$QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh \'dictionary\' > $RESULTS_DIR/wf_downstream_of_dictionary.gv
+dot -Tpdf $RESULTS_DIR/wf_downstream_of_dictionary.gv > $RESULTS_DIR/wf_downstream_of_dictionary.pdf
+dot -Tsvg $RESULTS_DIR/wf_downstream_of_dictionary.gv > $RESULTS_DIR/wf_downstream_of_dictionary.svg
 
-# draw worfklow graph downstream of FileProcess
-$QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh \'FileProcess\' > $RESULTS_DIR/wf_downstream_of_FileProcess.gv
-dot -Tpdf $RESULTS_DIR/wf_downstream_of_FileProcess.gv > $RESULTS_DIR/wf_downstream_of_FileProcess.pdf
-dot -Tsvg $RESULTS_DIR/wf_downstream_of_FileProcess.gv > $RESULTS_DIR/wf_downstream_of_FileProcess.svg
+# draw worfklow graph downstream of train_corpus
+$QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh \'train_corpus\' > $RESULTS_DIR/wf_downstream_of_train_corpus.gv
+dot -Tpdf $RESULTS_DIR/wf_downstream_of_train_corpus.gv > $RESULTS_DIR/wf_downstream_of_train_corpus.pdf
+dot -Tsvg $RESULTS_DIR/wf_downstream_of_train_corpus.gv > $RESULTS_DIR/wf_downstream_of_train_corpus.svg
+
+# draw worfklow graph downstream of test_corpus
+$QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh \'test_corpus\' > $RESULTS_DIR/wf_downstream_of_test_corpus.gv
+dot -Tpdf $RESULTS_DIR/wf_downstream_of_test_corpus.gv > $RESULTS_DIR/wf_downstream_of_test_corpus.pdf
+dot -Tsvg $RESULTS_DIR/wf_downstream_of_test_corpus.gv > $RESULTS_DIR/wf_downstream_of_test_corpus.svg
 
 
 
@@ -110,10 +125,15 @@ $QUERIES_DIR/list_outputs_downstream_of_data_q4.sh \'Static_Text\' Static_Text >
 #   Q5_pro   #
 ##############
 
-# draw recon worfklow graph upstream of Topicmodeling_Result
-$QUERIES_DIR/render_wf_recon_graph_upstream_of_data_q5.sh \'Topicmodeling_Result\' > $RESULTS_DIR/wf_recon_upstream_of_Topicmodeling_Result.gv
-dot -Tpdf $RESULTS_DIR/wf_recon_upstream_of_Topicmodeling_Result.gv > $RESULTS_DIR/wf_recon_upstream_of_Topicmodeling_Result.pdf
-dot -Tsvg $RESULTS_DIR/wf_recon_upstream_of_Topicmodeling_Result.gv > $RESULTS_DIR/wf_recon_upstream_of_Topicmodeling_Result.svg
+# draw recon worfklow graph upstream of LDA_model
+$QUERIES_DIR/render_wf_recon_graph_upstream_of_data_q5.sh \'LDA_model\' > $RESULTS_DIR/wf_recon_upstream_of_LDA_model.gv
+dot -Tpdf $RESULTS_DIR/wf_recon_upstream_of_LDA_model.gv > $RESULTS_DIR/wf_recon_upstream_of_LDA_model.pdf
+dot -Tsvg $RESULTS_DIR/wf_recon_upstream_of_LDA_model.gv > $RESULTS_DIR/wf_recon_upstream_of_LDA_model.svg
+
+# draw recon worfklow graph upstream of run_log
+$QUERIES_DIR/render_wf_recon_graph_upstream_of_data_q5.sh \'run_log\' > $RESULTS_DIR/wf_recon_upstream_of_run_log.gv
+dot -Tpdf $RESULTS_DIR/wf_recon_upstream_of_run_log.gv > $RESULTS_DIR/wf_recon_upstream_of_run_log.pdf
+dot -Tsvg $RESULTS_DIR/wf_recon_upstream_of_run_log.gv > $RESULTS_DIR/wf_recon_upstream_of_run_log.svg
 
 ##############
 #   Q6_pro   #
