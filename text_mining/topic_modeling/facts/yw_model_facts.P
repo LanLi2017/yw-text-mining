@@ -1,21 +1,17 @@
 
 % FACT: program(program_id, program_name, qualified_program_name, begin_annotation_id, end_annotation_id).
-program(1, 'topic_modeling', 'topic_modeling', 1, 94).
-program(2, 'TrainingCorpus', 'topic_modeling.TrainingCorpus', 15, 47).
-program(3, 'AccessText', 'topic_modeling.TrainingCorpus.AccessText', 29, 37).
-program(4, 'PreprocessFile', 'topic_modeling.TrainingCorpus.PreprocessFile', 38, 46).
-program(5, 'Evaluation_Model', 'topic_modeling.Evaluation_Model', 48, 93).
-program(6, 'LDA_evaluation', 'topic_modeling.Evaluation_Model.LDA_evaluation', 62, 68).
-program(7, 'HDP_evaluation', 'topic_modeling.Evaluation_Model.HDP_evaluation', 69, 73).
-program(8, 'LSI_evaluation', 'topic_modeling.Evaluation_Model.LSI_evaluation', 74, 92).
-program(9, 'TFIDF_transformation', 'topic_modeling.Evaluation_Model.LSI_evaluation.TFIDF_transformation', 81, 85).
-program(10, 'LSI_model', 'topic_modeling.Evaluation_Model.LSI_evaluation.LSI_model', 86, 91).
+program(1, 'topic_modeling', 'topic_modeling', 1, 84).
+program(2, 'ConstructCorpus', 'topic_modeling.ConstructCorpus', 13, 48).
+program(3, 'AccessText', 'topic_modeling.ConstructCorpus.AccessText', 29, 37).
+program(4, 'PreprocessFile', 'topic_modeling.ConstructCorpus.PreprocessFile', 38, 47).
+program(5, 'Train_Predict_Model', 'topic_modeling.Train_Predict_Model', 49, 83).
+program(6, 'get_iteration_number', 'topic_modeling.Train_Predict_Model.get_iteration_number', 63, 75).
+program(7, 'LDA_model', 'topic_modeling.Train_Predict_Model.LDA_model', 76, 82).
 
 % FACT: workflow(program_id).
 workflow(1).
 workflow(2).
 workflow(5).
-workflow(8).
 
 % FACT: function(program_id).
 
@@ -26,299 +22,281 @@ has_subprogram(2, 4).
 has_subprogram(1, 5).
 has_subprogram(5, 6).
 has_subprogram(5, 7).
-has_subprogram(5, 8).
-has_subprogram(8, 9).
-has_subprogram(8, 10).
 
 % FACT: port(port_id, port_type, port_name, qualified_port_name, port_annotation_id, data_id).
 port(1, 'in', 'Static_text', 'topic_modeling<-Static_text', 3, 1).
-port(2, 'out', 'LDA_model', 'topic_modeling->LDA_model', 5, 2).
-port(3, 'out', 'HDP_model', 'topic_modeling->HDP_model', 8, 3).
-port(4, 'out', 'LSI_model', 'topic_modeling->LSI_model', 11, 4).
-port(5, 'out', 'Evaluation_result', 'topic_modeling->Evaluation_result', 14, 5).
-port(6, 'in', 'text_data_path', 'topic_modeling.TrainingCorpus<-text_data_path', 17, 6).
-port(7, 'in', 'stopwords', 'topic_modeling.TrainingCorpus<-stopwords', 21, 7).
-port(8, 'in', 'regexr', 'topic_modeling.TrainingCorpus<-regexr', 22, 8).
-port(9, 'out', 'processed_corpus', 'topic_modeling.TrainingCorpus->processed_corpus', 24, 9).
-port(10, 'out', 'dictionary', 'topic_modeling.TrainingCorpus->dictionary', 26, 10).
-port(11, 'in', 'text_data_path', 'topic_modeling.TrainingCorpus.AccessText<-text_data_path', 31, 11).
-port(12, 'out', 'text_file', 'topic_modeling.TrainingCorpus.AccessText->text_file', 35, 12).
-port(13, 'in', 'stopwords', 'topic_modeling.TrainingCorpus.PreprocessFile<-stopwords', 40, 13).
-port(14, 'in', 'regexr', 'topic_modeling.TrainingCorpus.PreprocessFile<-regexr', 41, 14).
-port(15, 'in', 'TextRead', 'topic_modeling.TrainingCorpus.PreprocessFile<-TextRead', 43, 12).
-port(16, 'out', 'dictionary', 'topic_modeling.TrainingCorpus.PreprocessFile->dictionary', 44, 15).
-port(17, 'in', 'Corpus', 'topic_modeling.Evaluation_Model<-Corpus', 50, 9).
-port(18, 'in', 'dictionary', 'topic_modeling.Evaluation_Model<-dictionary', 51, 10).
-port(19, 'out', 'LDA_model', 'topic_modeling.Evaluation_Model->LDA_model', 52, 16).
-port(20, 'out', 'HDP_model', 'topic_modeling.Evaluation_Model->HDP_model', 55, 17).
-port(21, 'out', 'LSI_model', 'topic_modeling.Evaluation_Model->LSI_model', 58, 18).
-port(22, 'out', 'Evaluation_result', 'topic_modeling.Evaluation_Model->Evaluation_result', 61, 19).
-port(23, 'in', 'Corpus', 'topic_modeling.Evaluation_Model.LDA_evaluation<-Corpus', 64, 20).
-port(24, 'in', 'dictionary', 'topic_modeling.Evaluation_Model.LDA_evaluation<-dictionary', 65, 21).
-port(25, 'param', 'num_topics', 'topic_modeling.Evaluation_Model.LDA_evaluation<-num_topics', 66, 22).
-port(26, 'out', 'LDA_model', 'topic_modeling.Evaluation_Model.LDA_evaluation->LDA_model', 67, 23).
-port(27, 'in', 'Corpus', 'topic_modeling.Evaluation_Model.HDP_evaluation<-Corpus', 70, 20).
-port(28, 'in', 'dictionary', 'topic_modeling.Evaluation_Model.HDP_evaluation<-dictionary', 71, 21).
-port(29, 'out', 'HDP_model', 'topic_modeling.Evaluation_Model.HDP_evaluation->HDP_model', 72, 24).
-port(30, 'in', 'Corpus', 'topic_modeling.Evaluation_Model.LSI_evaluation<-Corpus', 75, 20).
-port(31, 'in', 'dictionary', 'topic_modeling.Evaluation_Model.LSI_evaluation<-dictionary', 76, 21).
-port(32, 'param', 'num_topics', 'topic_modeling.Evaluation_Model.LSI_evaluation<-num_topics', 77, 22).
-port(33, 'out', 'LSI_model', 'topic_modeling.Evaluation_Model.LSI_evaluation->LSI_model', 78, 25).
-port(34, 'in', 'Corpus', 'topic_modeling.Evaluation_Model.LSI_evaluation.TFIDF_transformation<-Corpus', 82, 26).
-port(35, 'out', 'corpus_tfidf', 'topic_modeling.Evaluation_Model.LSI_evaluation.TFIDF_transformation->corpus_tfidf', 83, 27).
-port(36, 'in', 'corpus_tfidf', 'topic_modeling.Evaluation_Model.LSI_evaluation.LSI_model<-corpus_tfidf', 87, 27).
-port(37, 'in', 'dictionary', 'topic_modeling.Evaluation_Model.LSI_evaluation.LSI_model<-dictionary', 88, 28).
-port(38, 'param', 'num_topics', 'topic_modeling.Evaluation_Model.LSI_evaluation.LSI_model<-num_topics', 89, 29).
-port(39, 'out', 'LSI_model', 'topic_modeling.Evaluation_Model.LSI_evaluation.LSI_model->LSI_model', 90, 30).
+port(2, 'param', 'num_topics', 'topic_modeling<-num_topics', 5, 2).
+port(3, 'param', 'num_iteration', 'topic_modeling<-num_iteration', 6, 3).
+port(4, 'out', 'LDA_model', 'topic_modeling->LDA_model', 7, 4).
+port(5, 'out', 'log', 'topic_modeling->log', 10, 5).
+port(6, 'in', 'text_data_path', 'topic_modeling.ConstructCorpus<-text_data_path', 15, 6).
+port(7, 'in', 'stopwords', 'topic_modeling.ConstructCorpus<-stopwords', 19, 7).
+port(8, 'in', 'regexr', 'topic_modeling.ConstructCorpus<-regexr', 20, 8).
+port(9, 'out', 'dictionary', 'topic_modeling.ConstructCorpus->dictionary', 22, 9).
+port(10, 'out', 'train_corpus', 'topic_modeling.ConstructCorpus->train_corpus', 25, 10).
+port(11, 'out', 'test_corpus', 'topic_modeling.ConstructCorpus->test_corpus', 27, 11).
+port(12, 'in', 'text_data_path', 'topic_modeling.ConstructCorpus.AccessText<-text_data_path', 31, 12).
+port(13, 'out', 'text_file', 'topic_modeling.ConstructCorpus.AccessText->text_file', 35, 13).
+port(14, 'in', 'stopwords', 'topic_modeling.ConstructCorpus.PreprocessFile<-stopwords', 40, 14).
+port(15, 'in', 'regexr', 'topic_modeling.ConstructCorpus.PreprocessFile<-regexr', 41, 15).
+port(16, 'in', 'TextRead', 'topic_modeling.ConstructCorpus.PreprocessFile<-TextRead', 43, 13).
+port(17, 'out', 'dictionary', 'topic_modeling.ConstructCorpus.PreprocessFile->dictionary', 44, 16).
+port(18, 'out', 'train_corpus', 'topic_modeling.ConstructCorpus.PreprocessFile->train_corpus', 45, 17).
+port(19, 'out', 'test_corpus', 'topic_modeling.ConstructCorpus.PreprocessFile->test_corpus', 46, 18).
+port(20, 'in', 'train_corpus', 'topic_modeling.Train_Predict_Model<-train_corpus', 51, 10).
+port(21, 'in', 'dictionary', 'topic_modeling.Train_Predict_Model<-dictionary', 52, 9).
+port(22, 'in', 'test_corpus', 'topic_modeling.Train_Predict_Model<-test_corpus', 53, 11).
+port(23, 'param', 'num_iteration', 'topic_modeling.Train_Predict_Model<-num_iteration', 54, 19).
+port(24, 'param', 'num_topics', 'topic_modeling.Train_Predict_Model<-num_topics', 56, 20).
+port(25, 'out', 'LDA_model', 'topic_modeling.Train_Predict_Model->LDA_model', 58, 21).
+port(26, 'out', 'log', 'topic_modeling.Train_Predict_Model->log', 61, 22).
+port(27, 'in', 'train_corpus', 'topic_modeling.Train_Predict_Model.get_iteration_number<-train_corpus', 65, 23).
+port(28, 'in', 'test_corpus', 'topic_modeling.Train_Predict_Model.get_iteration_number<-test_corpus', 66, 24).
+port(29, 'in', 'dictionary', 'topic_modeling.Train_Predict_Model.get_iteration_number<-dictionary', 67, 25).
+port(30, 'param', 'num_iteration', 'topic_modeling.Train_Predict_Model.get_iteration_number<-num_iteration', 68, 26).
+port(31, 'param', 'num_topics', 'topic_modeling.Train_Predict_Model.get_iteration_number<-num_topics', 69, 27).
+port(32, 'out', 'log', 'topic_modeling.Train_Predict_Model.get_iteration_number->log', 70, 28).
+port(33, 'out', 'iter', 'topic_modeling.Train_Predict_Model.get_iteration_number->iter', 72, 29).
+port(34, 'in', 'dictionary', 'topic_modeling.Train_Predict_Model.LDA_model<-dictionary', 77, 25).
+port(35, 'in', 'num_topics', 'topic_modeling.Train_Predict_Model.LDA_model<-num_topics', 78, 27).
+port(36, 'in', 'iter', 'topic_modeling.Train_Predict_Model.LDA_model<-iter', 79, 29).
+port(37, 'out', 'LDA_model', 'topic_modeling.Train_Predict_Model.LDA_model->LDA_model', 81, 30).
 
 % FACT: port_alias(port_id, alias).
+port_alias(5, 'run_log').
 port_alias(6, 'Static_text').
 port_alias(8, 'regular_expression').
-port_alias(9, 'Corpus').
-port_alias(10, 'dictionary').
-port_alias(11, 'Static_text').
-port_alias(12, 'TextRead').
-port_alias(14, 'regular_expression').
-port_alias(16, 'Corpus').
+port_alias(9, 'dictionary').
+port_alias(12, 'Static_text').
+port_alias(13, 'TextRead').
+port_alias(15, 'regular_expression').
+port_alias(26, 'run_log').
+port_alias(32, 'run_log').
+port_alias(33, 'converge_iteration').
+port_alias(36, 'converge_iteration').
 
 % FACT: port_uri_template(port_id, uri).
-port_uri_template(1, 'file:news2012.txt').
-port_uri_template(2, 'file:LDA_output.txt').
-port_uri_template(3, 'file:HDP_output.txt').
-port_uri_template(4, 'file:LSI_output.txt').
+port_uri_template(1, 'file:../../nipstxt').
+port_uri_template(4, 'file:LDA_output.txt').
 port_uri_template(6, 'file:book1.txt').
-port_uri_template(11, 'file:news2012.txt').
-port_uri_template(19, 'file:LDA_output.txt').
-port_uri_template(20, 'file:HDP_output.txt').
-port_uri_template(21, 'file:LSI_output.txt').
-port_uri_template(33, 'file:LSI_output.txt').
+port_uri_template(12, 'file:../../nipstxt').
+port_uri_template(25, 'file:LDA_output.txt').
 
 % FACT: has_in_port(block_id, port_id).
 has_in_port(1, 1).
+has_in_port(1, 2).
+has_in_port(1, 3).
 has_in_port(2, 6).
 has_in_port(2, 7).
 has_in_port(2, 8).
-has_in_port(3, 11).
-has_in_port(4, 13).
+has_in_port(3, 12).
 has_in_port(4, 14).
 has_in_port(4, 15).
-has_in_port(5, 17).
-has_in_port(5, 18).
-has_in_port(6, 23).
-has_in_port(6, 24).
-has_in_port(6, 25).
-has_in_port(7, 27).
-has_in_port(7, 28).
-has_in_port(8, 30).
-has_in_port(8, 31).
-has_in_port(8, 32).
-has_in_port(9, 34).
-has_in_port(10, 36).
-has_in_port(10, 37).
-has_in_port(10, 38).
+has_in_port(4, 16).
+has_in_port(5, 20).
+has_in_port(5, 21).
+has_in_port(5, 22).
+has_in_port(5, 23).
+has_in_port(5, 24).
+has_in_port(6, 27).
+has_in_port(6, 28).
+has_in_port(6, 29).
+has_in_port(6, 30).
+has_in_port(6, 31).
+has_in_port(7, 34).
+has_in_port(7, 35).
+has_in_port(7, 36).
 
 % FACT: has_out_port(block_id, port_id).
-has_out_port(1, 2).
-has_out_port(1, 3).
 has_out_port(1, 4).
 has_out_port(1, 5).
 has_out_port(2, 9).
 has_out_port(2, 10).
-has_out_port(3, 12).
-has_out_port(4, 16).
-has_out_port(5, 19).
-has_out_port(5, 20).
-has_out_port(5, 21).
-has_out_port(5, 22).
-has_out_port(6, 26).
-has_out_port(7, 29).
-has_out_port(8, 33).
-has_out_port(9, 35).
-has_out_port(10, 39).
+has_out_port(2, 11).
+has_out_port(3, 13).
+has_out_port(4, 17).
+has_out_port(4, 18).
+has_out_port(4, 19).
+has_out_port(5, 25).
+has_out_port(5, 26).
+has_out_port(6, 32).
+has_out_port(6, 33).
+has_out_port(7, 37).
 
 % FACT: data(data_id, data_name, qualified_data_name).
 data(1, 'Static_text', '[Static_text]').
-data(2, 'LDA_model', '[LDA_model]').
-data(3, 'HDP_model', '[HDP_model]').
-data(4, 'LSI_model', '[LSI_model]').
-data(5, 'Evaluation_result', '[Evaluation_result]').
+data(2, 'num_topics', '[num_topics]').
+data(3, 'num_iteration', '[num_iteration]').
+data(4, 'LDA_model', '[LDA_model]').
+data(5, 'run_log', '[run_log]').
 data(6, 'Static_text', 'topic_modeling[Static_text]').
 data(7, 'stopwords', 'topic_modeling[stopwords]').
 data(8, 'regular_expression', 'topic_modeling[regular_expression]').
-data(9, 'Corpus', 'topic_modeling[Corpus]').
-data(10, 'dictionary', 'topic_modeling[dictionary]').
-data(16, 'LDA_model', 'topic_modeling[LDA_model]').
-data(17, 'HDP_model', 'topic_modeling[HDP_model]').
-data(18, 'LSI_model', 'topic_modeling[LSI_model]').
-data(19, 'Evaluation_result', 'topic_modeling[Evaluation_result]').
-data(11, 'Static_text', 'topic_modeling.TrainingCorpus[Static_text]').
-data(12, 'TextRead', 'topic_modeling.TrainingCorpus[TextRead]').
-data(13, 'stopwords', 'topic_modeling.TrainingCorpus[stopwords]').
-data(14, 'regular_expression', 'topic_modeling.TrainingCorpus[regular_expression]').
-data(15, 'Corpus', 'topic_modeling.TrainingCorpus[Corpus]').
-data(20, 'Corpus', 'topic_modeling.Evaluation_Model[Corpus]').
-data(21, 'dictionary', 'topic_modeling.Evaluation_Model[dictionary]').
-data(22, 'num_topics', 'topic_modeling.Evaluation_Model[num_topics]').
-data(23, 'LDA_model', 'topic_modeling.Evaluation_Model[LDA_model]').
-data(24, 'HDP_model', 'topic_modeling.Evaluation_Model[HDP_model]').
-data(25, 'LSI_model', 'topic_modeling.Evaluation_Model[LSI_model]').
-data(26, 'Corpus', 'topic_modeling.Evaluation_Model.LSI_evaluation[Corpus]').
-data(27, 'corpus_tfidf', 'topic_modeling.Evaluation_Model.LSI_evaluation[corpus_tfidf]').
-data(28, 'dictionary', 'topic_modeling.Evaluation_Model.LSI_evaluation[dictionary]').
-data(29, 'num_topics', 'topic_modeling.Evaluation_Model.LSI_evaluation[num_topics]').
-data(30, 'LSI_model', 'topic_modeling.Evaluation_Model.LSI_evaluation[LSI_model]').
+data(9, 'dictionary', 'topic_modeling[dictionary]').
+data(10, 'train_corpus', 'topic_modeling[train_corpus]').
+data(11, 'test_corpus', 'topic_modeling[test_corpus]').
+data(19, 'num_iteration', 'topic_modeling[num_iteration]').
+data(20, 'num_topics', 'topic_modeling[num_topics]').
+data(21, 'LDA_model', 'topic_modeling[LDA_model]').
+data(22, 'run_log', 'topic_modeling[run_log]').
+data(12, 'Static_text', 'topic_modeling.ConstructCorpus[Static_text]').
+data(13, 'TextRead', 'topic_modeling.ConstructCorpus[TextRead]').
+data(14, 'stopwords', 'topic_modeling.ConstructCorpus[stopwords]').
+data(15, 'regular_expression', 'topic_modeling.ConstructCorpus[regular_expression]').
+data(16, 'dictionary', 'topic_modeling.ConstructCorpus[dictionary]').
+data(17, 'train_corpus', 'topic_modeling.ConstructCorpus[train_corpus]').
+data(18, 'test_corpus', 'topic_modeling.ConstructCorpus[test_corpus]').
+data(23, 'train_corpus', 'topic_modeling.Train_Predict_Model[train_corpus]').
+data(24, 'test_corpus', 'topic_modeling.Train_Predict_Model[test_corpus]').
+data(25, 'dictionary', 'topic_modeling.Train_Predict_Model[dictionary]').
+data(26, 'num_iteration', 'topic_modeling.Train_Predict_Model[num_iteration]').
+data(27, 'num_topics', 'topic_modeling.Train_Predict_Model[num_topics]').
+data(28, 'run_log', 'topic_modeling.Train_Predict_Model[run_log]').
+data(29, 'converge_iteration', 'topic_modeling.Train_Predict_Model[converge_iteration]').
+data(30, 'LDA_model', 'topic_modeling.Train_Predict_Model[LDA_model]').
 
 % FACT: channel(channel_id, data_id).
-channel(37, 2).
-channel(38, 3).
-channel(39, 4).
-channel(40, 5).
-channel(41, 6).
-channel(42, 9).
-channel(43, 10).
-channel(44, 1).
-channel(45, 16).
-channel(46, 17).
-channel(47, 18).
-channel(48, 19).
+channel(33, 4).
+channel(34, 5).
+channel(35, 6).
+channel(36, 10).
+channel(37, 9).
+channel(38, 11).
+channel(39, 19).
+channel(40, 20).
+channel(41, 1).
+channel(42, 2).
+channel(43, 3).
+channel(44, 21).
+channel(45, 22).
 channel(1, 9).
-channel(2, 11).
-channel(3, 13).
-channel(4, 14).
-channel(5, 12).
-channel(6, 6).
-channel(7, 7).
-channel(8, 8).
-channel(9, 15).
-channel(19, 16).
-channel(20, 17).
-channel(21, 18).
-channel(22, 20).
-channel(23, 20).
-channel(24, 20).
-channel(25, 21).
-channel(26, 21).
-channel(27, 21).
-channel(28, 9).
-channel(29, 9).
-channel(30, 9).
-channel(31, 10).
-channel(32, 10).
-channel(33, 10).
-channel(34, 23).
-channel(35, 24).
-channel(36, 25).
-channel(10, 25).
-channel(11, 26).
-channel(12, 27).
-channel(13, 28).
-channel(14, 29).
-channel(15, 20).
-channel(16, 21).
-channel(17, 22).
-channel(18, 30).
+channel(2, 10).
+channel(3, 11).
+channel(4, 12).
+channel(5, 14).
+channel(6, 15).
+channel(7, 13).
+channel(8, 6).
+channel(9, 7).
+channel(10, 8).
+channel(11, 16).
+channel(12, 17).
+channel(13, 18).
+channel(14, 21).
+channel(15, 22).
+channel(16, 23).
+channel(17, 24).
+channel(18, 25).
+channel(19, 25).
+channel(20, 26).
+channel(21, 27).
+channel(22, 27).
+channel(23, 29).
+channel(24, 10).
+channel(25, 9).
+channel(26, 9).
+channel(27, 11).
+channel(28, 19).
+channel(29, 20).
+channel(30, 20).
+channel(31, 30).
+channel(32, 28).
 
 % FACT: port_connects_to_channel(port_id, channel_id).
-port_connects_to_channel(19, 37).
-port_connects_to_channel(20, 38).
-port_connects_to_channel(21, 39).
-port_connects_to_channel(22, 40).
-port_connects_to_channel(6, 41).
-port_connects_to_channel(9, 42).
-port_connects_to_channel(17, 42).
-port_connects_to_channel(10, 43).
-port_connects_to_channel(18, 43).
-port_connects_to_channel(6, 44).
-port_connects_to_channel(19, 45).
-port_connects_to_channel(20, 46).
-port_connects_to_channel(21, 47).
-port_connects_to_channel(22, 48).
-port_connects_to_channel(16, 1).
-port_connects_to_channel(11, 2).
-port_connects_to_channel(13, 3).
-port_connects_to_channel(14, 4).
-port_connects_to_channel(12, 5).
-port_connects_to_channel(15, 5).
-port_connects_to_channel(11, 6).
-port_connects_to_channel(13, 7).
-port_connects_to_channel(14, 8).
-port_connects_to_channel(16, 9).
-port_connects_to_channel(26, 19).
-port_connects_to_channel(29, 20).
-port_connects_to_channel(33, 21).
-port_connects_to_channel(23, 22).
-port_connects_to_channel(27, 23).
-port_connects_to_channel(30, 24).
-port_connects_to_channel(24, 25).
-port_connects_to_channel(28, 26).
-port_connects_to_channel(31, 27).
-port_connects_to_channel(23, 28).
-port_connects_to_channel(27, 29).
-port_connects_to_channel(30, 30).
-port_connects_to_channel(24, 31).
-port_connects_to_channel(28, 32).
-port_connects_to_channel(31, 33).
+port_connects_to_channel(25, 33).
 port_connects_to_channel(26, 34).
-port_connects_to_channel(29, 35).
-port_connects_to_channel(33, 36).
-port_connects_to_channel(39, 10).
-port_connects_to_channel(34, 11).
-port_connects_to_channel(35, 12).
-port_connects_to_channel(36, 12).
-port_connects_to_channel(37, 13).
-port_connects_to_channel(38, 14).
-port_connects_to_channel(34, 15).
-port_connects_to_channel(37, 16).
-port_connects_to_channel(38, 17).
-port_connects_to_channel(39, 18).
+port_connects_to_channel(6, 35).
+port_connects_to_channel(10, 36).
+port_connects_to_channel(20, 36).
+port_connects_to_channel(9, 37).
+port_connects_to_channel(21, 37).
+port_connects_to_channel(11, 38).
+port_connects_to_channel(22, 38).
+port_connects_to_channel(23, 39).
+port_connects_to_channel(24, 40).
+port_connects_to_channel(6, 41).
+port_connects_to_channel(24, 42).
+port_connects_to_channel(23, 43).
+port_connects_to_channel(25, 44).
+port_connects_to_channel(26, 45).
+port_connects_to_channel(17, 1).
+port_connects_to_channel(18, 2).
+port_connects_to_channel(19, 3).
+port_connects_to_channel(12, 4).
+port_connects_to_channel(14, 5).
+port_connects_to_channel(15, 6).
+port_connects_to_channel(13, 7).
+port_connects_to_channel(16, 7).
+port_connects_to_channel(12, 8).
+port_connects_to_channel(14, 9).
+port_connects_to_channel(15, 10).
+port_connects_to_channel(17, 11).
+port_connects_to_channel(18, 12).
+port_connects_to_channel(19, 13).
+port_connects_to_channel(37, 14).
+port_connects_to_channel(32, 15).
+port_connects_to_channel(27, 16).
+port_connects_to_channel(28, 17).
+port_connects_to_channel(29, 18).
+port_connects_to_channel(34, 19).
+port_connects_to_channel(30, 20).
+port_connects_to_channel(31, 21).
+port_connects_to_channel(35, 22).
+port_connects_to_channel(33, 23).
+port_connects_to_channel(36, 23).
+port_connects_to_channel(27, 24).
+port_connects_to_channel(29, 25).
+port_connects_to_channel(34, 26).
+port_connects_to_channel(28, 27).
+port_connects_to_channel(30, 28).
+port_connects_to_channel(31, 29).
+port_connects_to_channel(35, 30).
+port_connects_to_channel(37, 31).
+port_connects_to_channel(32, 32).
 
 % FACT: inflow_connects_to_channel(port_id, channel_id).
+inflow_connects_to_channel(1, 35).
+inflow_connects_to_channel(3, 39).
+inflow_connects_to_channel(2, 40).
 inflow_connects_to_channel(1, 41).
-inflow_connects_to_channel(1, 44).
-inflow_connects_to_channel(6, 2).
-inflow_connects_to_channel(7, 3).
-inflow_connects_to_channel(8, 4).
-inflow_connects_to_channel(6, 6).
-inflow_connects_to_channel(7, 7).
-inflow_connects_to_channel(8, 8).
-inflow_connects_to_channel(17, 22).
-inflow_connects_to_channel(17, 23).
-inflow_connects_to_channel(17, 24).
-inflow_connects_to_channel(18, 25).
-inflow_connects_to_channel(18, 26).
-inflow_connects_to_channel(18, 27).
-inflow_connects_to_channel(17, 28).
-inflow_connects_to_channel(17, 29).
-inflow_connects_to_channel(17, 30).
-inflow_connects_to_channel(18, 31).
-inflow_connects_to_channel(18, 32).
-inflow_connects_to_channel(18, 33).
-inflow_connects_to_channel(30, 11).
-inflow_connects_to_channel(31, 13).
-inflow_connects_to_channel(32, 14).
-inflow_connects_to_channel(30, 15).
-inflow_connects_to_channel(31, 16).
-inflow_connects_to_channel(32, 17).
+inflow_connects_to_channel(2, 42).
+inflow_connects_to_channel(3, 43).
+inflow_connects_to_channel(6, 4).
+inflow_connects_to_channel(7, 5).
+inflow_connects_to_channel(8, 6).
+inflow_connects_to_channel(6, 8).
+inflow_connects_to_channel(7, 9).
+inflow_connects_to_channel(8, 10).
+inflow_connects_to_channel(20, 16).
+inflow_connects_to_channel(22, 17).
+inflow_connects_to_channel(21, 18).
+inflow_connects_to_channel(21, 19).
+inflow_connects_to_channel(23, 20).
+inflow_connects_to_channel(24, 21).
+inflow_connects_to_channel(24, 22).
+inflow_connects_to_channel(20, 24).
+inflow_connects_to_channel(21, 25).
+inflow_connects_to_channel(21, 26).
+inflow_connects_to_channel(22, 27).
+inflow_connects_to_channel(23, 28).
+inflow_connects_to_channel(24, 29).
+inflow_connects_to_channel(24, 30).
 
 % FACT: outflow_connects_to_channel(port_id, channel_id).
-outflow_connects_to_channel(2, 37).
-outflow_connects_to_channel(3, 38).
-outflow_connects_to_channel(4, 39).
-outflow_connects_to_channel(5, 40).
-outflow_connects_to_channel(2, 45).
-outflow_connects_to_channel(3, 46).
-outflow_connects_to_channel(4, 47).
-outflow_connects_to_channel(5, 48).
+outflow_connects_to_channel(4, 33).
+outflow_connects_to_channel(5, 34).
+outflow_connects_to_channel(4, 44).
+outflow_connects_to_channel(5, 45).
 outflow_connects_to_channel(9, 1).
-outflow_connects_to_channel(9, 9).
-outflow_connects_to_channel(19, 19).
-outflow_connects_to_channel(20, 20).
-outflow_connects_to_channel(21, 21).
-outflow_connects_to_channel(19, 34).
-outflow_connects_to_channel(20, 35).
-outflow_connects_to_channel(21, 36).
-outflow_connects_to_channel(33, 10).
-outflow_connects_to_channel(33, 18).
+outflow_connects_to_channel(10, 2).
+outflow_connects_to_channel(11, 3).
+outflow_connects_to_channel(9, 11).
+outflow_connects_to_channel(10, 12).
+outflow_connects_to_channel(11, 13).
+outflow_connects_to_channel(25, 14).
+outflow_connects_to_channel(26, 15).
+outflow_connects_to_channel(25, 31).
+outflow_connects_to_channel(26, 32).
 
 % FACT: uri_variable(uri_variable_id, variable_name, port_id).
 

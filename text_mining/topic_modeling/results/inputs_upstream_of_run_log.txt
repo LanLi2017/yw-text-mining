@@ -1,0 +1,10 @@
+
+
+---------------------------------------------------------------------------------------------------
+Q2_Pro : List the script inputs that are upstream of data product Topicmodeling_Result.
+
+q2_pro(DataProduct, InputDataName)
+...................................................................................................
+q2_pro(run_log,num_topics).
+q2_pro(run_log,num_iteration).
+q2_pro(run_log,'Static_text').

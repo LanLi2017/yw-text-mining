@@ -28,11 +28,11 @@
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_outflows</title>
-<polygon fill="none" stroke="white" stroke-width="2" points="234,-8 234,-54 312,-54 312,-8 234,-8"/>
+<polygon fill="none" stroke="white" stroke-width="2" points="250,-8 250,-54 296,-54 296,-8 250,-8"/>
 </g>
 <g id="clust6" class="cluster">
 <title>cluster_outflows_inner</title>
-<polygon fill="none" stroke="white" stroke-width="2" points="242,-16 242,-46 304,-46 304,-16 242,-16"/>
+<polygon fill="none" stroke="white" stroke-width="2" points="258,-16 258,-46 288,-46 288,-16 258,-16"/>
 </g>
 <!-- ConstructCorpus -->
 <g id="node1" class="node">
@@ -82,29 +82,17 @@
 <polygon fill="#ccffcc" stroke="black" points="360.626,-186 185.374,-186 185.374,-150 360.626,-150 360.626,-186"/>
 <text text-anchor="middle" x="273" y="-163.8" font-family="Courier,monospace" font-size="14.00">Train_Predict_Model</text>
 </g>
-<!-- LDA_model -->
-<g id="node9" class="node">
-<title>LDA_model</title>
-<path fill="#ffffcc" stroke="black" d="M258.651,-114C258.651,-114 193.349,-114 193.349,-114 187.349,-114 181.349,-108 181.349,-102 181.349,-102 181.349,-90 181.349,-90 181.349,-84 187.349,-78 193.349,-78 193.349,-78 258.651,-78 258.651,-78 264.651,-78 270.651,-84 270.651,-90 270.651,-90 270.651,-102 270.651,-102 270.651,-108 264.651,-114 258.651,-114"/>
-<text text-anchor="middle" x="226" y="-91.8" font-family="Helvetica,sans-Serif" font-size="14.00">LDA_model</text>
-</g>
-<!-- Train_Predict_Model&#45;&gt;LDA_model -->
-<g id="edge12" class="edge">
-<title>Train_Predict_Model&#45;&gt;LDA_model</title>
-<path fill="none" stroke="black" d="M261.14,-149.831C255.837,-141.708 249.476,-131.964 243.633,-123.012"/>
-<polygon fill="black" stroke="black" points="246.417,-120.874 238.02,-114.413 240.555,-124.7 246.417,-120.874"/>
-</g>
 <!-- run_log -->
-<g id="node10" class="node">
+<g id="node9" class="node">
 <title>run_log</title>
-<path fill="#ffffcc" stroke="black" d="M339.204,-114C339.204,-114 300.796,-114 300.796,-114 294.796,-114 288.796,-108 288.796,-102 288.796,-102 288.796,-90 288.796,-90 288.796,-84 294.796,-78 300.796,-78 300.796,-78 339.204,-78 339.204,-78 345.204,-78 351.204,-84 351.204,-90 351.204,-90 351.204,-102 351.204,-102 351.204,-108 345.204,-114 339.204,-114"/>
-<text text-anchor="middle" x="320" y="-91.8" font-family="Helvetica,sans-Serif" font-size="14.00">run_log</text>
+<path fill="#ffffcc" stroke="black" d="M292.204,-114C292.204,-114 253.796,-114 253.796,-114 247.796,-114 241.796,-108 241.796,-102 241.796,-102 241.796,-90 241.796,-90 241.796,-84 247.796,-78 253.796,-78 253.796,-78 292.204,-78 292.204,-78 298.204,-78 304.204,-84 304.204,-90 304.204,-90 304.204,-102 304.204,-102 304.204,-108 298.204,-114 292.204,-114"/>
+<text text-anchor="middle" x="273" y="-91.8" font-family="Helvetica,sans-Serif" font-size="14.00">run_log</text>
 </g>
 <!-- Train_Predict_Model&#45;&gt;run_log -->
-<g id="edge13" class="edge">
+<g id="edge12" class="edge">
 <title>Train_Predict_Model&#45;&gt;run_log</title>
-<path fill="none" stroke="black" d="M284.86,-149.831C290.163,-141.708 296.524,-131.964 302.367,-123.012"/>
-<polygon fill="black" stroke="black" points="305.445,-124.7 307.98,-114.413 299.583,-120.874 305.445,-124.7"/>
+<path fill="none" stroke="black" d="M273,-149.831C273,-142.131 273,-132.974 273,-124.417"/>
+<polygon fill="black" stroke="black" points="276.5,-124.413 273,-114.413 269.5,-124.413 276.5,-124.413"/>
 </g>
 <!-- Static_text -->
 <g id="node3" class="node">
@@ -113,7 +101,7 @@
 <text text-anchor="middle" x="317" y="-379.8" font-family="Helvetica,sans-Serif" font-size="14.00">Static_text</text>
 </g>
 <!-- Static_text&#45;&gt;ConstructCorpus -->
-<g id="edge1" class="edge">
+<g id="edge8" class="edge">
 <title>Static_text&#45;&gt;ConstructCorpus</title>
 <path fill="none" stroke="black" d="M285.205,-365.831C268.939,-356.537 248.961,-345.121 231.595,-335.197"/>
 <polygon fill="black" stroke="black" points="233.204,-332.085 222.785,-330.163 229.731,-338.163 233.204,-332.085"/>
@@ -125,7 +113,7 @@
 <text text-anchor="middle" x="218" y="-379.8" font-family="Helvetica,sans-Serif" font-size="14.00">stopwords</text>
 </g>
 <!-- stopwords&#45;&gt;ConstructCorpus -->
-<g id="edge2" class="edge">
+<g id="edge7" class="edge">
 <title>stopwords&#45;&gt;ConstructCorpus</title>
 <path fill="none" stroke="black" d="M211.187,-365.831C208.236,-357.962 204.714,-348.571 201.445,-339.853"/>
 <polygon fill="black" stroke="black" points="204.693,-338.548 197.905,-330.413 198.139,-341.006 204.693,-338.548"/>
@@ -137,104 +125,93 @@
 <text text-anchor="middle" x="93" y="-379.8" font-family="Helvetica,sans-Serif" font-size="14.00">regular_expression</text>
 </g>
 <!-- regular_expression&#45;&gt;ConstructCorpus -->
-<g id="edge3" class="edge">
+<g id="edge6" class="edge">
 <title>regular_expression&#45;&gt;ConstructCorpus</title>
 <path fill="none" stroke="black" d="M117.73,-365.831C129.916,-356.878 144.782,-345.956 157.931,-336.295"/>
 <polygon fill="black" stroke="black" points="160.292,-338.904 166.278,-330.163 156.147,-333.263 160.292,-338.904"/>
 </g>
 <!-- dictionary&#45;&gt;Train_Predict_Model -->
-<g id="edge4" class="edge">
+<g id="edge5" class="edge">
 <title>dictionary&#45;&gt;Train_Predict_Model</title>
 <path fill="none" stroke="black" d="M100.091,-224.903C102.761,-223.904 105.417,-222.927 108,-222 139.87,-210.56 175.543,-198.761 205.545,-189.122"/>
 <polygon fill="black" stroke="black" points="206.618,-192.454 215.075,-186.071 204.484,-185.787 206.618,-192.454"/>
 </g>
 <!-- train_corpus&#45;&gt;Train_Predict_Model -->
-<g id="edge5" class="edge">
+<g id="edge4" class="edge">
 <title>train_corpus&#45;&gt;Train_Predict_Model</title>
 <path fill="none" stroke="black" d="M191.505,-221.831C205.318,-212.707 222.226,-201.539 237.053,-191.745"/>
 <polygon fill="black" stroke="black" points="239.089,-194.595 245.503,-186.163 235.23,-188.754 239.089,-194.595"/>
 </g>
 <!-- test_corpus&#45;&gt;Train_Predict_Model -->
-<g id="edge6" class="edge">
+<g id="edge3" class="edge">
 <title>test_corpus&#45;&gt;Train_Predict_Model</title>
 <path fill="none" stroke="black" d="M273,-221.831C273,-214.131 273,-204.974 273,-196.417"/>
 <polygon fill="black" stroke="black" points="276.5,-196.413 273,-186.413 269.5,-196.413 276.5,-196.413"/>
 </g>
-<!-- LDA_model_outflow -->
-<g id="node17" class="node">
-<title>LDA_model_outflow</title>
-<ellipse fill="none" stroke="black" cx="257" cy="-31" rx="7" ry="7"/>
-</g>
-<!-- LDA_model&#45;&gt;LDA_model_outflow -->
-<g id="edge18" class="edge">
-<title>LDA_model&#45;&gt;LDA_model_outflow</title>
-<path fill="none" stroke="black" d="M234.635,-77.8939C239.321,-68.0684 245.056,-56.0435 249.545,-46.6305"/>
-<polygon fill="black" stroke="black" points="252.817,-47.9021 253.962,-37.3694 246.498,-44.8888 252.817,-47.9021"/>
-</g>
 <!-- run_log_outflow -->
-<g id="node16" class="node">
+<g id="node15" class="node">
 <title>run_log_outflow</title>
-<ellipse fill="none" stroke="black" cx="289" cy="-31" rx="7" ry="7"/>
+<ellipse fill="none" stroke="black" cx="273" cy="-31" rx="7" ry="7"/>
 </g>
 <!-- run_log&#45;&gt;run_log_outflow -->
-<g id="edge17" class="edge">
+<g id="edge16" class="edge">
 <title>run_log&#45;&gt;run_log_outflow</title>
-<path fill="none" stroke="black" d="M311.365,-77.8939C306.679,-68.0684 300.944,-56.0435 296.455,-46.6305"/>
-<polygon fill="black" stroke="black" points="299.502,-44.8888 292.038,-37.3694 293.183,-47.9021 299.502,-44.8888"/>
+<path fill="none" stroke="black" d="M273,-77.8939C273,-68.5967 273,-57.3301 273,-48.1707"/>
+<polygon fill="black" stroke="black" points="276.5,-48.0024 273,-38.0024 269.5,-48.0025 276.5,-48.0024"/>
 </g>
 <!-- num_iteration -->
-<g id="node11" class="node">
+<g id="node10" class="node">
 <title>num_iteration</title>
 <path fill="#ffffff" stroke="black" d="M424.327,-258C424.327,-258 347.673,-258 347.673,-258 341.673,-258 335.673,-252 335.673,-246 335.673,-246 335.673,-234 335.673,-234 335.673,-228 341.673,-222 347.673,-222 347.673,-222 424.327,-222 424.327,-222 430.327,-222 436.327,-228 436.327,-234 436.327,-234 436.327,-246 436.327,-246 436.327,-252 430.327,-258 424.327,-258"/>
 <text text-anchor="middle" x="386" y="-235.8" font-family="Helvetica,sans-Serif" font-size="14.00">num_iteration</text>
 </g>
 <!-- num_iteration&#45;&gt;Train_Predict_Model -->
-<g id="edge7" class="edge">
+<g id="edge2" class="edge">
 <title>num_iteration&#45;&gt;Train_Predict_Model</title>
 <path fill="none" stroke="black" d="M357.485,-221.831C343.166,-212.707 325.638,-201.539 310.266,-191.745"/>
 <polygon fill="black" stroke="black" points="311.82,-188.585 301.506,-186.163 308.058,-194.488 311.82,-188.585"/>
 </g>
 <!-- num_topics -->
-<g id="node12" class="node">
+<g id="node11" class="node">
 <title>num_topics</title>
 <path fill="#ffffff" stroke="black" d="M529.594,-258C529.594,-258 466.406,-258 466.406,-258 460.406,-258 454.406,-252 454.406,-246 454.406,-246 454.406,-234 454.406,-234 454.406,-228 460.406,-222 466.406,-222 466.406,-222 529.594,-222 529.594,-222 535.594,-222 541.594,-228 541.594,-234 541.594,-234 541.594,-246 541.594,-246 541.594,-252 535.594,-258 529.594,-258"/>
 <text text-anchor="middle" x="498" y="-235.8" font-family="Helvetica,sans-Serif" font-size="14.00">num_topics</text>
 </g>
 <!-- num_topics&#45;&gt;Train_Predict_Model -->
-<g id="edge8" class="edge">
+<g id="edge1" class="edge">
 <title>num_topics&#45;&gt;Train_Predict_Model</title>
 <path fill="none" stroke="black" d="M454.354,-225.087C451.191,-224.034 448.048,-222.996 445,-222 410.894,-210.856 372.842,-198.864 341.217,-189.018"/>
 <polygon fill="black" stroke="black" points="342.209,-185.661 331.621,-186.035 340.131,-192.346 342.209,-185.661"/>
 </g>
 <!-- Static_text_inflow -->
-<g id="node13" class="node">
+<g id="node12" class="node">
 <title>Static_text_inflow</title>
 <ellipse fill="none" stroke="black" cx="354" cy="-449" rx="7" ry="7"/>
 </g>
 <!-- Static_text_inflow&#45;&gt;Static_text -->
-<g id="edge14" class="edge">
+<g id="edge13" class="edge">
 <title>Static_text_inflow&#45;&gt;Static_text</title>
 <path fill="none" stroke="black" d="M350.317,-442.53C346.134,-435.182 339.035,-422.711 332.462,-411.164"/>
 <polygon fill="black" stroke="black" points="335.358,-409.176 327.37,-402.217 329.275,-412.639 335.358,-409.176"/>
 </g>
 <!-- num_iteration_inflow -->
-<g id="node14" class="node">
+<g id="node13" class="node">
 <title>num_iteration_inflow</title>
 <ellipse fill="none" stroke="black" cx="386" cy="-449" rx="7" ry="7"/>
 </g>
 <!-- num_iteration_inflow&#45;&gt;num_iteration -->
-<g id="edge15" class="edge">
+<g id="edge14" class="edge">
 <title>num_iteration_inflow&#45;&gt;num_iteration</title>
 <path fill="none" stroke="black" d="M386,-441.562C386,-414.047 386,-317.115 386,-268.396"/>
 <polygon fill="black" stroke="black" points="389.5,-268.22 386,-258.22 382.5,-268.22 389.5,-268.22"/>
 </g>
 <!-- num_topics_inflow -->
-<g id="node15" class="node">
+<g id="node14" class="node">
 <title>num_topics_inflow</title>
 <ellipse fill="none" stroke="black" cx="418" cy="-449" rx="7" ry="7"/>
 </g>
 <!-- num_topics_inflow&#45;&gt;num_topics -->
-<g id="edge16" class="edge">
+<g id="edge15" class="edge">
 <title>num_topics_inflow&#45;&gt;num_topics</title>
 <path fill="none" stroke="black" d="M420.662,-442.046C430.989,-415.067 468.755,-316.403 487.417,-267.648"/>
 <polygon fill="black" stroke="black" points="490.786,-268.636 491.093,-258.045 484.249,-266.133 490.786,-268.636"/>

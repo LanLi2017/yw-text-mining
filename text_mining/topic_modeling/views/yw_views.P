@@ -1,0 +1,271 @@
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_source_file(SourceId, SourceFile).
+%...................................................................................................
+yw_source_file(1,'./script/topic_modeling.py').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_workflow_script(WorkflowId, WorkflowName, SourceId, SourceFile).
+%...................................................................................................
+yw_workflow_script(1,topic_modeling,1,'./script/topic_modeling.py').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_program(WorkflowId, ProgramName, WorkflowId, SourceId, BeginLine, EndLine).
+%...................................................................................................
+yw_program(1,topic_modeling,nil,1,2,137).
+yw_program(2,'ConstructCorpus',1,1,18,78).
+yw_program(3,'AccessText',2,1,30,44).
+yw_program(4,'PreprocessFile',2,1,46,76).
+yw_program(5,'Train_Predict_Model',1,1,81,135).
+yw_program(6,get_iteration_number,5,1,91,121).
+yw_program(7,'LDA_model',5,1,123,133).
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_workflow(WorkflowId, WorkflowName, ParentWorkflowId, SourceId, BeginLine, EndLine).
+%...................................................................................................
+yw_workflow(1,topic_modeling,nil,1,2,137).
+yw_workflow(2,'ConstructCorpus',1,1,18,78).
+yw_workflow(5,'Train_Predict_Model',1,1,81,135).
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_workflow_step(StepId, StepName, WorkflowId, SourceId, BeginLine, EndLine).
+%...................................................................................................
+yw_workflow_step(2,'ConstructCorpus',1,1,18,78).
+yw_workflow_step(3,'AccessText',2,1,30,44).
+yw_workflow_step(4,'PreprocessFile',2,1,46,76).
+yw_workflow_step(5,'Train_Predict_Model',1,1,81,135).
+yw_workflow_step(6,get_iteration_number,5,1,91,121).
+yw_workflow_step(7,'LDA_model',5,1,123,133).
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_function(FunctionId, FunctionName, ParentWorkflowId, SourceId, BeginLine, EndLine).
+%...................................................................................................
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_data(DataId, DataName, WorkflowId, WorkflowName).
+%...................................................................................................
+yw_data(1,'Static_text',nil,nil).
+yw_data(2,num_topics,nil,nil).
+yw_data(3,num_iteration,nil,nil).
+yw_data(4,'LDA_model',nil,nil).
+yw_data(5,run_log,nil,nil).
+yw_data(6,'Static_text',1,topic_modeling).
+yw_data(7,stopwords,1,topic_modeling).
+yw_data(8,regular_expression,1,topic_modeling).
+yw_data(9,dictionary,1,topic_modeling).
+yw_data(10,train_corpus,1,topic_modeling).
+yw_data(11,test_corpus,1,topic_modeling).
+yw_data(12,'Static_text',2,'ConstructCorpus').
+yw_data(13,'TextRead',2,'ConstructCorpus').
+yw_data(14,stopwords,2,'ConstructCorpus').
+yw_data(15,regular_expression,2,'ConstructCorpus').
+yw_data(16,dictionary,2,'ConstructCorpus').
+yw_data(17,train_corpus,2,'ConstructCorpus').
+yw_data(18,test_corpus,2,'ConstructCorpus').
+yw_data(19,num_iteration,1,topic_modeling).
+yw_data(20,num_topics,1,topic_modeling).
+yw_data(21,'LDA_model',1,topic_modeling).
+yw_data(22,run_log,1,topic_modeling).
+yw_data(23,train_corpus,5,'Train_Predict_Model').
+yw_data(24,test_corpus,5,'Train_Predict_Model').
+yw_data(25,dictionary,5,'Train_Predict_Model').
+yw_data(26,num_iteration,5,'Train_Predict_Model').
+yw_data(27,num_topics,5,'Train_Predict_Model').
+yw_data(28,run_log,5,'Train_Predict_Model').
+yw_data(29,converge_iteration,5,'Train_Predict_Model').
+yw_data(30,'LDA_model',5,'Train_Predict_Model').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_step_input(ProgramId, ProgramName, PortType, PortId, PortName, DataId, DataName).
+%...................................................................................................
+yw_step_input(7,'LDA_model',in,36,iter,29,converge_iteration).
+yw_step_input(7,'LDA_model',in,35,num_topics,27,num_topics).
+yw_step_input(7,'LDA_model',in,34,dictionary,25,dictionary).
+yw_step_input(6,get_iteration_number,param,31,num_topics,27,num_topics).
+yw_step_input(6,get_iteration_number,param,30,num_iteration,26,num_iteration).
+yw_step_input(6,get_iteration_number,in,29,dictionary,25,dictionary).
+yw_step_input(6,get_iteration_number,in,28,test_corpus,24,test_corpus).
+yw_step_input(6,get_iteration_number,in,27,train_corpus,23,train_corpus).
+yw_step_input(5,'Train_Predict_Model',param,24,num_topics,20,num_topics).
+yw_step_input(5,'Train_Predict_Model',param,23,num_iteration,19,num_iteration).
+yw_step_input(5,'Train_Predict_Model',in,22,test_corpus,11,test_corpus).
+yw_step_input(5,'Train_Predict_Model',in,21,dictionary,9,dictionary).
+yw_step_input(5,'Train_Predict_Model',in,20,train_corpus,10,train_corpus).
+yw_step_input(4,'PreprocessFile',in,16,'TextRead',13,'TextRead').
+yw_step_input(4,'PreprocessFile',in,15,regexr,15,regular_expression).
+yw_step_input(4,'PreprocessFile',in,14,stopwords,14,stopwords).
+yw_step_input(3,'AccessText',in,12,text_data_path,12,'Static_text').
+yw_step_input(2,'ConstructCorpus',in,8,regexr,8,regular_expression).
+yw_step_input(2,'ConstructCorpus',in,7,stopwords,7,stopwords).
+yw_step_input(2,'ConstructCorpus',in,6,text_data_path,6,'Static_text').
+yw_step_input(1,topic_modeling,param,3,num_iteration,3,num_iteration).
+yw_step_input(1,topic_modeling,param,2,num_topics,2,num_topics).
+yw_step_input(1,topic_modeling,in,1,'Static_text',1,'Static_text').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_step_output(ProgramId, ProgramName, PortType, PortId, PortName, DataId, DataName).
+%...................................................................................................
+yw_step_output(1,topic_modeling,out,4,'LDA_model',4,'LDA_model').
+yw_step_output(1,topic_modeling,out,5,log,5,run_log).
+yw_step_output(2,'ConstructCorpus',out,9,dictionary,9,dictionary).
+yw_step_output(2,'ConstructCorpus',out,10,train_corpus,10,train_corpus).
+yw_step_output(2,'ConstructCorpus',out,11,test_corpus,11,test_corpus).
+yw_step_output(3,'AccessText',out,13,text_file,13,'TextRead').
+yw_step_output(4,'PreprocessFile',out,17,dictionary,16,dictionary).
+yw_step_output(4,'PreprocessFile',out,18,train_corpus,17,train_corpus).
+yw_step_output(4,'PreprocessFile',out,19,test_corpus,18,test_corpus).
+yw_step_output(5,'Train_Predict_Model',out,25,'LDA_model',21,'LDA_model').
+yw_step_output(5,'Train_Predict_Model',out,26,log,22,run_log).
+yw_step_output(6,get_iteration_number,out,32,log,28,run_log).
+yw_step_output(6,get_iteration_number,out,33,iter,29,converge_iteration).
+yw_step_output(7,'LDA_model',out,37,'LDA_model',30,'LDA_model').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_inflow(WorkflowId, WorkflowName, DataId, DataName, ProgramId, ProgramName).
+%...................................................................................................
+yw_inflow(5,'Train_Predict_Model',27,num_topics,7,'LDA_model').
+yw_inflow(5,'Train_Predict_Model',25,dictionary,7,'LDA_model').
+yw_inflow(5,'Train_Predict_Model',27,num_topics,6,get_iteration_number).
+yw_inflow(5,'Train_Predict_Model',26,num_iteration,6,get_iteration_number).
+yw_inflow(5,'Train_Predict_Model',25,dictionary,6,get_iteration_number).
+yw_inflow(5,'Train_Predict_Model',24,test_corpus,6,get_iteration_number).
+yw_inflow(5,'Train_Predict_Model',23,train_corpus,6,get_iteration_number).
+yw_inflow(1,topic_modeling,20,num_topics,5,'Train_Predict_Model').
+yw_inflow(1,topic_modeling,19,num_iteration,5,'Train_Predict_Model').
+yw_inflow(2,'ConstructCorpus',15,regular_expression,4,'PreprocessFile').
+yw_inflow(2,'ConstructCorpus',14,stopwords,4,'PreprocessFile').
+yw_inflow(2,'ConstructCorpus',12,'Static_text',3,'AccessText').
+yw_inflow(1,topic_modeling,6,'Static_text',2,'ConstructCorpus').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_flow(SourceProgramId, SourceProgramName, SourcePortId, SourcePortName, DataId, DataName, SinkPortId, SinkPortName, SinkProgramId, SinkProgramName).
+%...................................................................................................
+yw_flow(2,'ConstructCorpus',9,dictionary,9,dictionary,21,dictionary,5,'Train_Predict_Model').
+yw_flow(2,'ConstructCorpus',10,train_corpus,10,train_corpus,20,train_corpus,5,'Train_Predict_Model').
+yw_flow(2,'ConstructCorpus',11,test_corpus,11,test_corpus,22,test_corpus,5,'Train_Predict_Model').
+yw_flow(3,'AccessText',13,text_file,13,'TextRead',16,'TextRead',4,'PreprocessFile').
+yw_flow(6,get_iteration_number,33,iter,29,converge_iteration,36,iter,7,'LDA_model').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_outflow(StepId, StepName, StepOutDataId, StepOutDataName, WorkflowId, WorkflowName, WorkflowOutDataId, WorkflowOutDataName).
+%...................................................................................................
+yw_outflow(5,'Train_Predict_Model',21,'LDA_model',1,topic_modeling,4,'LDA_model').
+yw_outflow(5,'Train_Predict_Model',22,run_log,1,topic_modeling,5,run_log).
+yw_outflow(4,'PreprocessFile',16,dictionary,2,'ConstructCorpus',9,dictionary).
+yw_outflow(4,'PreprocessFile',17,train_corpus,2,'ConstructCorpus',10,train_corpus).
+yw_outflow(4,'PreprocessFile',18,test_corpus,2,'ConstructCorpus',11,test_corpus).
+yw_outflow(7,'LDA_model',30,'LDA_model',5,'Train_Predict_Model',21,'LDA_model').
+yw_outflow(6,get_iteration_number,28,run_log,5,'Train_Predict_Model',22,run_log).
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_qualified_name(EntityType, Id, QualifiedName).
+%...................................................................................................
+yw_qualified_name(program,1,topic_modeling).
+yw_qualified_name(program,2,'topic_modeling.ConstructCorpus').
+yw_qualified_name(program,3,'topic_modeling.ConstructCorpus.AccessText').
+yw_qualified_name(program,4,'topic_modeling.ConstructCorpus.PreprocessFile').
+yw_qualified_name(program,5,'topic_modeling.Train_Predict_Model').
+yw_qualified_name(program,6,'topic_modeling.Train_Predict_Model.get_iteration_number').
+yw_qualified_name(program,7,'topic_modeling.Train_Predict_Model.LDA_model').
+yw_qualified_name(port,1,'topic_modeling<-Static_text').
+yw_qualified_name(port,2,'topic_modeling<-num_topics').
+yw_qualified_name(port,3,'topic_modeling<-num_iteration').
+yw_qualified_name(port,4,'topic_modeling->LDA_model').
+yw_qualified_name(port,5,'topic_modeling->log').
+yw_qualified_name(port,6,'topic_modeling.ConstructCorpus<-text_data_path').
+yw_qualified_name(port,7,'topic_modeling.ConstructCorpus<-stopwords').
+yw_qualified_name(port,8,'topic_modeling.ConstructCorpus<-regexr').
+yw_qualified_name(port,9,'topic_modeling.ConstructCorpus->dictionary').
+yw_qualified_name(port,10,'topic_modeling.ConstructCorpus->train_corpus').
+yw_qualified_name(port,11,'topic_modeling.ConstructCorpus->test_corpus').
+yw_qualified_name(port,12,'topic_modeling.ConstructCorpus.AccessText<-text_data_path').
+yw_qualified_name(port,13,'topic_modeling.ConstructCorpus.AccessText->text_file').
+yw_qualified_name(port,14,'topic_modeling.ConstructCorpus.PreprocessFile<-stopwords').
+yw_qualified_name(port,15,'topic_modeling.ConstructCorpus.PreprocessFile<-regexr').
+yw_qualified_name(port,16,'topic_modeling.ConstructCorpus.PreprocessFile<-TextRead').
+yw_qualified_name(port,17,'topic_modeling.ConstructCorpus.PreprocessFile->dictionary').
+yw_qualified_name(port,18,'topic_modeling.ConstructCorpus.PreprocessFile->train_corpus').
+yw_qualified_name(port,19,'topic_modeling.ConstructCorpus.PreprocessFile->test_corpus').
+yw_qualified_name(port,20,'topic_modeling.Train_Predict_Model<-train_corpus').
+yw_qualified_name(port,21,'topic_modeling.Train_Predict_Model<-dictionary').
+yw_qualified_name(port,22,'topic_modeling.Train_Predict_Model<-test_corpus').
+yw_qualified_name(port,23,'topic_modeling.Train_Predict_Model<-num_iteration').
+yw_qualified_name(port,24,'topic_modeling.Train_Predict_Model<-num_topics').
+yw_qualified_name(port,25,'topic_modeling.Train_Predict_Model->LDA_model').
+yw_qualified_name(port,26,'topic_modeling.Train_Predict_Model->log').
+yw_qualified_name(port,27,'topic_modeling.Train_Predict_Model.get_iteration_number<-train_corpus').
+yw_qualified_name(port,28,'topic_modeling.Train_Predict_Model.get_iteration_number<-test_corpus').
+yw_qualified_name(port,29,'topic_modeling.Train_Predict_Model.get_iteration_number<-dictionary').
+yw_qualified_name(port,30,'topic_modeling.Train_Predict_Model.get_iteration_number<-num_iteration').
+yw_qualified_name(port,31,'topic_modeling.Train_Predict_Model.get_iteration_number<-num_topics').
+yw_qualified_name(port,32,'topic_modeling.Train_Predict_Model.get_iteration_number->log').
+yw_qualified_name(port,33,'topic_modeling.Train_Predict_Model.get_iteration_number->iter').
+yw_qualified_name(port,34,'topic_modeling.Train_Predict_Model.LDA_model<-dictionary').
+yw_qualified_name(port,35,'topic_modeling.Train_Predict_Model.LDA_model<-num_topics').
+yw_qualified_name(port,36,'topic_modeling.Train_Predict_Model.LDA_model<-iter').
+yw_qualified_name(port,37,'topic_modeling.Train_Predict_Model.LDA_model->LDA_model').
+yw_qualified_name(data,1,'[Static_text]').
+yw_qualified_name(data,2,'[num_topics]').
+yw_qualified_name(data,3,'[num_iteration]').
+yw_qualified_name(data,4,'[LDA_model]').
+yw_qualified_name(data,5,'[run_log]').
+yw_qualified_name(data,6,'topic_modeling[Static_text]').
+yw_qualified_name(data,7,'topic_modeling[stopwords]').
+yw_qualified_name(data,8,'topic_modeling[regular_expression]').
+yw_qualified_name(data,9,'topic_modeling[dictionary]').
+yw_qualified_name(data,10,'topic_modeling[train_corpus]').
+yw_qualified_name(data,11,'topic_modeling[test_corpus]').
+yw_qualified_name(data,19,'topic_modeling[num_iteration]').
+yw_qualified_name(data,20,'topic_modeling[num_topics]').
+yw_qualified_name(data,21,'topic_modeling[LDA_model]').
+yw_qualified_name(data,22,'topic_modeling[run_log]').
+yw_qualified_name(data,12,'topic_modeling.ConstructCorpus[Static_text]').
+yw_qualified_name(data,13,'topic_modeling.ConstructCorpus[TextRead]').
+yw_qualified_name(data,14,'topic_modeling.ConstructCorpus[stopwords]').
+yw_qualified_name(data,15,'topic_modeling.ConstructCorpus[regular_expression]').
+yw_qualified_name(data,16,'topic_modeling.ConstructCorpus[dictionary]').
+yw_qualified_name(data,17,'topic_modeling.ConstructCorpus[train_corpus]').
+yw_qualified_name(data,18,'topic_modeling.ConstructCorpus[test_corpus]').
+yw_qualified_name(data,23,'topic_modeling.Train_Predict_Model[train_corpus]').
+yw_qualified_name(data,24,'topic_modeling.Train_Predict_Model[test_corpus]').
+yw_qualified_name(data,25,'topic_modeling.Train_Predict_Model[dictionary]').
+yw_qualified_name(data,26,'topic_modeling.Train_Predict_Model[num_iteration]').
+yw_qualified_name(data,27,'topic_modeling.Train_Predict_Model[num_topics]').
+yw_qualified_name(data,28,'topic_modeling.Train_Predict_Model[run_log]').
+yw_qualified_name(data,29,'topic_modeling.Train_Predict_Model[converge_iteration]').
+yw_qualified_name(data,30,'topic_modeling.Train_Predict_Model[LDA_model]').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_description(EntityType, Id, Name, Description)).
+%...................................................................................................
+yw_description(program,1,topic_modeling,'Exercise YW for Analysing Text with NLTk').
+yw_description(program,2,'ConstructCorpus','Using Gensim to construct training corpus and testing corpus').
+yw_description(program,3,'AccessText','To read the text data from book1.txt file').
+yw_description(program,4,'PreprocessFile','To preprocess the text data').
+yw_description(program,5,'Train_Predict_Model','Using gensim.LDA to training model and predicting, get the converge number').
+yw_description(program,6,get_iteration_number,'training model to get the converge iteration number').
+yw_description(port,4,'LDA_model','Transformation from BOW counts into a topic space').
+yw_description(port,5,log,'record the iterations and log_perplexity and time stamp').
+yw_description(port,6,text_data_path,'Text file which contains static text data').
+yw_description(port,9,dictionary,'a mapping between words and their integer ids').
+yw_description(port,10,train_corpus,'split 0.8 corpus to train the model').
+yw_description(port,11,test_corpus,'split 0.2 corpus to predict').
+yw_description(port,12,text_data_path,'Text file which contains static text data').
+yw_description(port,23,num_iteration,'number of maximum iterations').
+yw_description(port,24,num_topics,'number of topics').
+yw_description(port,25,'LDA_model','Transformation from BOW counts into a topic space').
+yw_description(port,33,iter,'number of iterations when converge').

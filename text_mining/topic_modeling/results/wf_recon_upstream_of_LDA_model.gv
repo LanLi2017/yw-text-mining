@@ -6,18 +6,21 @@ label="topic_modeling"
 subgraph cluster_workflow { label=""; color=black; penwidth=2
 subgraph cluster_workflow_inner { label=""; color=white
 node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+ConstructCorpus
+Train_Predict_Model
 node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
 ConstructCorpus
 Train_Predict_Model
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
-Static_text
 stopwords
 regular_expression
 dictionary
 train_corpus
 test_corpus
-LDA_model
-run_log
+node[shape=box style="rounded,filled" fillcolor="#FFE4B5" peripheries=1 fontname="Courier-Bold" fontsize=9]
+Static_text[shape=record rankdir=LR label="{<f0> Static_text |<f1>}"]
+node[shape=box style="rounded,filled" fillcolor="#FFE4B5" peripheries=1 fontname="Courier-Bold" fontsize=9]
+LDA_model[shape=record rankdir=LR label="{<f0> LDA_model |<f1>}"]
 node[shape=box style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica]
 num_iteration
 num_topics
@@ -32,26 +35,23 @@ num_topics_inflow [label=""]
 subgraph cluster_outflows { label=""; color=white; penwidth=2
 subgraph cluster_outflows_inner { label=""; color=white
 node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
-run_log_outflow [label=""]
 LDA_model_outflow [label=""]
 }}
-Static_text -> ConstructCorpus
-stopwords -> ConstructCorpus
-regular_expression -> ConstructCorpus
-dictionary -> Train_Predict_Model
-train_corpus -> Train_Predict_Model
-test_corpus -> Train_Predict_Model
-num_iteration -> Train_Predict_Model
 num_topics -> Train_Predict_Model
+num_iteration -> Train_Predict_Model
+test_corpus -> Train_Predict_Model
+train_corpus -> Train_Predict_Model
+dictionary -> Train_Predict_Model
+regular_expression -> ConstructCorpus
+stopwords -> ConstructCorpus
+Static_text -> ConstructCorpus
 ConstructCorpus -> dictionary
 ConstructCorpus -> train_corpus
 ConstructCorpus -> test_corpus
 Train_Predict_Model -> LDA_model
-Train_Predict_Model -> run_log
 Static_text_inflow -> Static_text
 num_iteration_inflow -> num_iteration
 num_topics_inflow -> num_topics
-run_log -> run_log_outflow
 LDA_model -> LDA_model_outflow
 }
 
