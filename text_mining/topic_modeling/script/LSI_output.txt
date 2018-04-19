@@ -1,5 +1,0 @@
--0.608*"said." + -0.197*"people" + -0.171*"would" + -0.171*"one" + -0.155*"said" + -0.149*"could" + -0.134*"new" + -0.100*"expected" + -0.097*"much" + -0.093*"like"
--0.660*"said." + 0.243*"much" + 0.205*"would" + 0.199*"said" + 0.158*"new" + 0.134*"one" + 0.104*"two" + 0.095*"first" + 0.088*"like" + 0.087*"mr."
--0.883*"much" + 0.129*"would" + -0.111*"it’s" + -0.109*"said." + 0.104*"one" + -0.104*"insurance." + 0.081*"people" + -0.078*"different" + 0.072*"said" + -0.071*"put"
-0.472*"going" + -0.441*"would" + -0.318*"people" + 0.311*"one" + -0.142*"said" + 0.138*"first" + 0.134*"they're" + 0.113*"him." + 0.109*"time" + 0.104*"great"
--0.461*"would" + 0.368*"new" + 0.353*"people" + -0.351*"going" + -0.140*"great" + -0.115*"they're" + -0.106*"two" + -0.092*"know" + 0.090*"right" + -0.087*"told"
